@@ -1,1 +1,16 @@
+-- sentencia que se debe ejecutar antes de crear la DB por script
 SET sql_mode = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+
+
+
+
+
+-- dentro del mysql/bin>, hacer lo siguienta para crear la DB y el usuario de la aplicacion
+
+> mysql -u root -p
+
+mysql> create database oei;
+
+mysql> create user 'appoei'@'localhost' identified '123456';
+
+mysql> grant all privileges on oei.* to 'appeei'@'localhost';
