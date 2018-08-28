@@ -14,3 +14,4 @@ mysql> create database oei;
 mysql> create user 'appoei'@'localhost' identified '123456';
 
 mysql> grant all privileges on oei.* to 'appeei'@'localhost';
+esta una prueba...
