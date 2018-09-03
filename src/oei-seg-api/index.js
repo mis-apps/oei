@@ -5,6 +5,8 @@ const bodyParser =require('body-parser');
 const mysqltwo =require('mysql2');
 const Sequelize = require('sequelize');
 
+const port=process.env.PORT||3333
+
 // parametros: base de datos, usuario, contraseña
 const db = new Sequelize('oei', 'appoei', '123456', {
     host: 'localhost',
@@ -16,10 +18,12 @@ const db = new Sequelize('oei', 'appoei', '123456', {
 // definición de modelos
 const modelos = {};
 modelos['Aplicacion'] = db.import('./modelos/aplicacion.js');
+modelos['negArchivos'] = db.import('./modelos/neg_archivos.js');
 
 // cargado de servicios
 const servicios = {};
 servicios['Aplicacion'] = require('./servicios/aplicacion.servicio')(servicios, modelos, Sequelize.Op);
+servicios['negArchivos'] = require('./servicios/neg_archivos.servicios')(servicios, modelos, Sequelize.Op);
 
 // creación de la aplicación express
 const app = express();
@@ -32,9 +36,11 @@ const router = express.Router();
 
 // cargado del controlador en el enrutador
 require('./controladores/aplicacion.controlador')(router, servicios);
+require('./controladores/neg_archivos.controlador')(router, servicios);
 
 // cargado del enrutador en la aplicación
 app.use('/api-aplicacion/v1', router);
+
 
 // manejo de errores
 app.use((err, req, res, next) => {
@@ -43,6 +49,6 @@ app.use((err, req, res, next) => {
 });
 
 // inicialización de la aplicación
-app.listen(3333, () => {
-    console.log('Servidor oei-api corriendo....')
+app.listen(port, () => {
+    console.log(`Servidor oei-api corriendo en http://localhost:${port}`)
 });
