@@ -2,7 +2,7 @@ module.exports=(sequelize, DataTypes)=>{
 
     const Aplicacion = sequelize.define('Aplicacion',{
         id:{
-            type:DataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull:false,
             primaryKey: true
         },
@@ -39,7 +39,7 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'oei',
-        tableName:'seg_aplicaciones',
+        tableName:'aplicacion',
         timestamps: false
     });
 

@@ -8,4 +8,36 @@ module.exports = (router, servicios) => {
             .catch(next);
     });
 
+    router.post('/aplicacion', (req, res, next) => {
+        return servicios.Aplicacion.crear(req.body)
+            .then((aplicaciones) => {
+                return res.status(201).json(aplicaciones);
+            })
+            .catch(next);
+    });
+
+    router.get('/aplicacion/:id', (req, res, next) => {
+        return servicios.Aplicacion.obtener(req.params.id)
+            .then((aplicaciones) => {
+                return res.status(200).json(aplicaciones);
+            })
+            .catch(next);
+    });
+
+    router.put('/aplicacion/:id', (req, res, next) => {
+        return servicios.Aplicacion.actualizar(req.params.id, req.body)
+            .then((aplicaciones) => {
+                return res.status(200).json(aplicaciones);
+            })
+            .catch(next);
+    });
+
+    router.delete('/aplicacion/:id', (req, res, next) => {
+        return servicios.Aplicacion.eliminar(req.params.id)
+            .then(() => {
+                return res.status(200).json({});
+            })
+            .catch(next);
+    });
+
 };

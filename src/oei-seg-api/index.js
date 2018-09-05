@@ -8,7 +8,7 @@ const Sequelize = require('sequelize');
 const port=process.env.PORT||3333
 
 // parametros: base de datos, usuario, contraseña
-const db = new Sequelize('oei', 'appoei', '123456', {
+const db = new Sequelize('oei', 'usroei', '123456', {
     host: 'localhost',
     port: '3306',
     dialect: 'mysql',
@@ -18,12 +18,12 @@ const db = new Sequelize('oei', 'appoei', '123456', {
 // definición de modelos
 const modelos = {};
 modelos['Aplicacion'] = db.import('./modelos/aplicacion.js');
-modelos['negArchivos'] = db.import('./modelos/neg_archivos.js');
+//modelos['negArchivos'] = db.import('./modelos/neg_archivos.js');
 
 // cargado de servicios
 const servicios = {};
 servicios['Aplicacion'] = require('./servicios/aplicacion.servicio')(servicios, modelos, Sequelize.Op);
-servicios['negArchivos'] = require('./servicios/neg_archivos.servicios')(servicios, modelos, Sequelize.Op);
+//servicios['negArchivos'] = require('./servicios/archivos.servicios')(servicios, modelos, Sequelize.Op);
 
 // creación de la aplicación express
 const app = express();
@@ -36,7 +36,7 @@ const router = express.Router();
 
 // cargado del controlador en el enrutador
 require('./controladores/aplicacion.controlador')(router, servicios);
-require('./controladores/neg_archivos.controlador')(router, servicios);
+//require('./controladores/archivo.controlador')(router, servicios);
 
 // cargado del enrutador en la aplicación
 app.use('/api-aplicacion/v1', router);
