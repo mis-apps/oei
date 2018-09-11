@@ -5,13 +5,26 @@ module.exports=(sequelize, DataTypes)=>{
     const RolRecurso = sequelize.define('RolRecurso',{
         id:{
             type:DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull:false,
             primaryKey: true
         },
-        lectura: DataType.BOOLEAN,
-        creacion: DataType.BOOLEAN,
-        modificacion: DataType.BOOLEAN,
-        eliminacion: DataType.BOOLEAN,
+        lectura: {
+            type:DataTypes.BOOLEAN,
+            allowNull:false
+        },
+        creacion:{
+            type:DataTypes.BOOLEAN,
+            allowNull:false
+        },
+        modificacion: {
+            type:DataTypes.BOOLEAN,
+            allowNull:false
+        },
+        eliminacion: {
+            type:DataTypes.BOOLEAN,
+            allowNull:false
+        },
         fechaRegistro:{
             type:DataTypes.DATE,
             allowNull: false,
@@ -24,6 +37,7 @@ module.exports=(sequelize, DataTypes)=>{
         },
         fechaModificacion:{
             type:DataTypes.DATE,
+            allowNull:false,
             field:'fecha_modificacion'
         },
         usuarioModificacion:{
@@ -33,7 +47,7 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'core',
-        tableName:'seg_roles_recursos',
+        tableName:'rol_recurso',
         timestamps: false
     });
 

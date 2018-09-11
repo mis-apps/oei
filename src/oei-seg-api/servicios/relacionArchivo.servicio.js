@@ -4,26 +4,26 @@ module.exports = (servicios, modelos) => {
 
     // metodos Repository
     relacionArchivoServicio.listar = (params) => {
-        return modelos.relacionArchivo.findAll(relacionArchivoServicio.filtro(params));
+        return modelos.RelacionArchivo.findAll(relacionArchivoServicio.filtro(params));
     };
 
     relacionArchivoServicio.encontrarUno = (params) => {
-        return modelos.relacionArchivo.findOne(relacionArchivoServicio.filtro(params));
+        return modelos.RelacionArchivo.findOne(relacionArchivoServicio.filtro(params));
     };
 
     relacionArchivoServicio.construir = (params) => {
-        return modelos.relacionArchivo.build(params);
+        return modelos.RelacionArchivo.build(params);
     };
 
-    relacionArchivoServicio.guardar = (relacionArchivo, params) => {
+    relacionArchivoServicio.guardar = (RelacionArchivo, params) => {
         if (params) {
-            relacionArchivo.set(params);
+            RelacionArchivo.set(params);
         }
-        return relacionArchivo.save();
+        return RelacionArchivo.save();
     };
 
-    relacionArchivoServicio.destruir = (relacionArchivo) => {
-        return relacionArchivo.destroy();
+    relacionArchivoServicio.destruir = (RelacionArchivo) => {
+        return RelacionArchivo.destroy();
     };
 
     relacionArchivoServicio.filtro = (condiciones) => {
@@ -37,16 +37,16 @@ module.exports = (servicios, modelos) => {
 
     relacionArchivoServicio.actualizar = (id, params) => {
         return relacionArchivoServicio.obtener(id)
-            .then((relacionArchivo) => {
-                return relacionArchivoServicio.guardar(relacionArchivo, params);
+            .then((RelacionArchivo) => {
+                return relacionArchivoServicio.guardar(RelacionArchivo, params);
             });
     };
 
     relacionArchivoServicio.obtener = (id) => {
         return relacionArchivoServicio.encontrarUno({ id })
-            .then((relacionArchivo) => {
-                if (!relacionArchivo) throw new Error('No se ha encontrado');
-                return relacionArchivo;
+            .then((RelacionArchivo) => {
+                if (!RelacionArchivo) throw new Error('No se ha encontrado');
+                return RelacionArchivo;
             });
     }
 

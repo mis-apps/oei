@@ -5,6 +5,7 @@ module.exports=(sequelize, DataTypes)=>{
     const  Dominio = sequelize.define('Dominio',{
         id:{
             type:DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull:false,
             primaryKey: true
         },

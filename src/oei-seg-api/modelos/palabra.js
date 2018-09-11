@@ -5,11 +5,18 @@ module.exports=(sequelize, DataTypes)=>{
     const Palabra = sequelize.define('Palabra',{
         id:{
             type:DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull:false,
             primaryKey: true
         },
-        idioma:DataTypes.STRING,
-        palabra: DataType.STRING,
+        idioma:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        palabra:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
         fechaRegistro:{
             type:DataTypes.DATE,
             allowNull: false,
@@ -22,6 +29,7 @@ module.exports=(sequelize, DataTypes)=>{
         },
         fechaModificacion:{
             type:DataTypes.DATE,
+            allowNull:false,
             field:'fecha_modificacion'
         },
         usuarioModificacion:{
@@ -31,7 +39,7 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'core',
-        tableName:'neg_palabra',
+        tableName:'palabra',
         timestamps: false
     });
 

@@ -3,6 +3,7 @@ module.exports=(sequelize, DataTypes)=>{
     const Aplicacion = sequelize.define('Aplicacion',{
         id:{
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull:false,
             primaryKey: true
         },

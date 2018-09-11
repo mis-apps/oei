@@ -4,26 +4,26 @@ module.exports = (servicios, modelos) => {
 
     // metodos Repository
     rolRecursoServicio.listar = (params) => {
-        return modelos.rolRecurso.findAll(rolRecursoServicio.filtro(params));
+        return modelos.RolRecurso.findAll(rolRecursoServicio.filtro(params));
     };
 
     rolRecursoServicio.encontrarUno = (params) => {
-        return modelos.rolRecurso.findOne(rolRecursoServicio.filtro(params));
+        return modelos.RolRecurso.findOne(rolRecursoServicio.filtro(params));
     };
 
     rolRecursoServicio.construir = (params) => {
-        return modelos.rolRecurso.build(params);
+        return modelos.RolRecurso.build(params);
     };
 
-    rolRecursoServicio.guardar = (rolRecurso, params) => {
+    rolRecursoServicio.guardar = (RolRecurso, params) => {
         if (params) {
-            rolRecurso.set(params);
+            RolRecurso.set(params);
         }
-        return rolRecurso.save();
+        return RolRecurso.save();
     };
 
-    rolRecursoServicio.destruir = (rolRecurso) => {
-        return rolRecurso.destroy();
+    rolRecursoServicio.destruir = (RolRecurso) => {
+        return RolRecurso.destroy();
     };
 
     rolRecursoServicio.filtro = (condiciones) => {
@@ -37,16 +37,16 @@ module.exports = (servicios, modelos) => {
 
     rolRecursoServicio.actualizar = (id, params) => {
         return rolRecursoServicio.obtener(id)
-            .then((rolRecurso) => {
-                return rolRecursoServicio.guardar(rolRecurso, params);
+            .then((RolRecurso) => {
+                return rolRecursoServicio.guardar(RolRecurso, params);
             });
     };
 
     rolRecursoServicio.obtener = (id) => {
         return rolRecursoServicio.encontrarUno({ id })
-            .then((rolRecurso) => {
-                if (!rolRecurso) throw new Error('No se ha encontrado');
-                return rolRecurso;
+            .then((RolRecurso) => {
+                if (!RolRecurso) throw new Error('No se ha encontrado');
+                return RolRecurso;
             });
     }
 

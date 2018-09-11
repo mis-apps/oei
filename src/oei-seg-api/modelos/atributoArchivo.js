@@ -1,8 +1,10 @@
 
 module.exports=(sequelize, DataTypes )=>{
-    const AtributoArchivo =sequelize('AtributoArchivo',{
+
+    const AtributoArchivo =sequelize.define('AtributoArchivo',{
     id:{
         type:DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
@@ -34,7 +36,7 @@ module.exports=(sequelize, DataTypes )=>{
     tableName:'atributo_archivo',
     timestamps: false
     });
-
+    
     AtributoArchivo.asociar=(modelos)=>{
 
     modelos.AtributoArchivo.hasMany(modelos.Archivo,{

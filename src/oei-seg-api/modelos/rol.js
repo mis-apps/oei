@@ -5,6 +5,7 @@ module.exports=(sequelize, DataTypes)=>{
     const Rol = sequelize.define('Rol',{
         id:{
             type:DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull:false,
             primaryKey: true
         },
@@ -12,7 +13,7 @@ module.exports=(sequelize, DataTypes)=>{
             type:DataTypes.STRING,
             allowNull:false
         },
-        descripcion:DataType.STRING,
+        descripcion:DataTypes.STRING,
         fechaRegistro:{
             type:DataTypes.DATE,
             allowNull: false,
@@ -34,7 +35,7 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'core',
-        tableName:'seg_roles',
+        tableName:'rol',
         timestamps: false
     });
     

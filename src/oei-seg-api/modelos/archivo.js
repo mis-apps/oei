@@ -2,6 +2,7 @@ module.exports=(sequelize,DataTypes)=>{
     const Archivo = sequelize.define('Archivo',{
         id:{
             type:DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull: false,
             primaryKey:true
         },
@@ -17,7 +18,11 @@ module.exports=(sequelize,DataTypes)=>{
         },
         size:DataTypes.INTEGER,
         fileName:DataTypes.STRING,
-        mimeType:DataTypes.STRING,
+        mimeType:{
+            type:DataTypes.STRING,
+            allowNull:false,
+            field:'mime_type'
+        },
         fechaRegistro:{
             type:DataTypes.DATE,
             allowNull: false,
@@ -37,6 +42,7 @@ module.exports=(sequelize,DataTypes)=>{
             field:'usuario_modificacion'
         },
         activo: DataTypes.BOOLEAN
+
     },{
         //schema:'oei',
         tableName:'archivo',

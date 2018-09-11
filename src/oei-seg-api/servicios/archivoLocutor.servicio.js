@@ -4,26 +4,26 @@ module.exports = (servicios, modelos) => {
 
     // metodos Repository
     archivoLocutorServicio.listar = (params) => {
-        return modelos.archivoLocutor.findAll(archivoLocutorServicio.filtro(params));
+        return modelos.ArchivoLocutor.findAll(archivoLocutorServicio.filtro(params));
     };
 
     archivoLocutorServicio.encontrarUno = (params) => {
-        return modelos.archivoLocutor.findOne(archivoLocutorServicio.filtro(params));
+        return modelos.ArchivoLocutor.findOne(archivoLocutorServicio.filtro(params));
     };
 
     archivoLocutorServicio.construir = (params) => {
-        return modelos.archivoLocutor.build(params);
+        return modelos.ArchivoLocutor.build(params);
     };
 
-    archivoLocutorServicio.guardar = (archivoLocutor, params) => {
+    archivoLocutorServicio.guardar = (ArchivoLocutor, params) => {
         if (params) {
-            archivoLocutor.set(params);
+            ArchivoLocutor.set(params);
         }
-        return archivoLocutor.save();
+        return ArchivoLocutor.save();
     };
 
-    archivoLocutorServicio.destruir = (archivoLocutor) => {
-        return archivoLocutor.destroy();
+    archivoLocutorServicio.destruir = (ArchivoLocutor) => {
+        return ArchivoLocutor.destroy();
     };
 
     archivoLocutorServicio.filtro = (condiciones) => {
@@ -37,16 +37,16 @@ module.exports = (servicios, modelos) => {
 
     archivoLocutorServicio.actualizar = (id, params) => {
         return archivoLocutorServicio.obtener(id)
-            .then((archivoLocutor) => {
-                return archivoLocutorServicio.guardar(archivoLocutor, params);
+            .then((ArchivoLocutor) => {
+                return archivoLocutorServicio.guardar(ArchivoLocutor, params);
             });
     };
 
     archivoLocutorServicio.obtener = (id) => {
         return archivoLocutorServicio.encontrarUno({ id })
-            .then((archivoLocutor) => {
-                if (!archivoLocutor) throw new Error('No se ha encontrado');
-                return archivoLocutor;
+            .then((ArchivoLocutor) => {
+                if (!ArchivoLocutor) throw new Error('No se ha encontrado');
+                return ArchivoLocutor;
             });
     }
 

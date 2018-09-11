@@ -2,6 +2,7 @@ module.exports=(sequelize,DataTypes)=>{
     const Criterio = sequelize.define('Criterio',{
         id:{
             type:DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull: false,
             primaryKey:true
         },

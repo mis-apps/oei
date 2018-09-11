@@ -5,6 +5,7 @@ module.exports=(sequelize, DataTypes)=>{
     const Locutor = sequelize.define('Locutor',{
         id:{
             type:DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull:false,
             primaryKey: true
         },
@@ -13,6 +14,12 @@ module.exports=(sequelize, DataTypes)=>{
         primer_nombre:DataTypes.STRING,
         segundo_nombre:DataTypes.STRING,
         genero:DataTypes.STRING,
+        fechaNacimiento:{
+            type:DataTypes.DATE,
+            allowNull: false,
+            field:'fecha_nacimiento'
+        },
+        procedencia:DataTypes.STRING,
         fechaRegistro:{
             type:DataTypes.DATE,
             allowNull: false,

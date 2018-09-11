@@ -5,14 +5,15 @@ module.exports=(sequelize, DataTypes)=>{
     const Recurso = sequelize.define('Recurso',{
         id:{
             type:DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull:false,
             primaryKey: true
         },
         
-        es_modulo:DataType.STRING,
-        posicion:DataType.INTEGER,
-        nombre:DataType.STRING,
-        recurso:DataType.STRING,
+        es_modulo:DataTypes.STRING,
+        posicion:DataTypes.INTEGER,
+        nombre:DataTypes.STRING,
+        recurso:DataTypes.STRING,
 
         fechaRegistro:{
             type:DataTypes.DATE,

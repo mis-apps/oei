@@ -3,13 +3,19 @@ module.exports=(sequelize, DataTypes)=>{
     const Modulo = sequelize.define('Modulo',{
         id:{
             type:DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull:false,
             primaryKey: true
         },
 
-        posicion:DataType.INTEGER,
-        nombre:DataType.STRING,
-
+        posicion:{
+            type:DataTypes.INTEGER,
+            allowNull:false
+        },
+        nombre:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
         fechaRegistro:{
             type:DataTypes.DATE,
             allowNull: false,
@@ -22,6 +28,7 @@ module.exports=(sequelize, DataTypes)=>{
         },
         fechaModificacion:{
             type:DataTypes.DATE,
+            allowNull: false,
             field:'fecha_modificacion'
         },
         usuarioModificacion:{
@@ -31,7 +38,7 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'core',
-        tableName:'seg_modulos',
+        tableName:'modulo',
         timestamps: false
     });
 

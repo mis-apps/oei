@@ -1,8 +1,9 @@
 
 module.exports=(sequelize, DataTypes )=>{
-    const ArchivoLocutor=sequelize('ArchivoLocutor',{
+    const ArchivoLocutor = sequelize.define('ArchivoLocutor',{
     id:{
         type:DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },

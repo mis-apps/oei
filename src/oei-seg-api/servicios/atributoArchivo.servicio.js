@@ -4,26 +4,26 @@ module.exports = (servicios, modelos) => {
 
     // metodos Repository
     atributoArchivoServicio.listar = (params) => {
-        return modelos.atributoArchivo.findAll(atributoArchivoServicio.filtro(params));
+        return modelos.AtributoArchivo.findAll(atributoArchivoServicio.filtro(params));
     };
 
     atributoArchivoServicio.encontrarUno = (params) => {
-        return modelos.atributoArchivo.findOne(atributoArchivoServicio.filtro(params));
+        return modelos.AtributoArchivo.findOne(atributoArchivoServicio.filtro(params));
     };
 
     atributoArchivoServicio.construir = (params) => {
-        return modelos.atributoArchivo.build(params);
+        return modelos.AtributoArchivo.build(params);
     };
 
-    atributoArchivoServicio.guardar = (atributoArchivo, params) => {
+    atributoArchivoServicio.guardar = (AtributoArchivo, params) => {
         if (params) {
-            atributoArchivo.set(params);
+            AtributoArchivo.set(params);
         }
-        return atributoArchivo.save();
+        return AtributoArchivo.save();
     };
 
-    atributoArchivoServicio.destruir = (atributoArchivo) => {
-        return atributoArchivo.destroy();
+    atributoArchivoServicio.destruir = (AtributoArchivo) => {
+        return AtributoArchivo.destroy();
     };
 
     atributoArchivoServicio.filtro = (condiciones) => {
@@ -37,16 +37,16 @@ module.exports = (servicios, modelos) => {
 
     atributoArchivoServicio.actualizar = (id, params) => {
         return atributoArchivoServicio.obtener(id)
-            .then((atributoArchivo) => {
-                return atributoArchivoServicio.guardar(atributoArchivo, params);
+            .then((AtributoArchivo) => {
+                return atributoArchivoServicio.guardar(AtributoArchivo, params);
             });
     };
 
     atributoArchivoServicio.obtener = (id) => {
         return atributoArchivoServicio.encontrarUno({ id })
-            .then((atributoArchivo) => {
-                if (!atributoArchivo) throw new Error('No se ha encontrado');
-                return atributoArchivo;
+            .then((AtributoArchivo) => {
+                if (!AtributoArchivo) throw new Error('No se ha encontrado');
+                return AtributoArchivo;
             });
     }
 

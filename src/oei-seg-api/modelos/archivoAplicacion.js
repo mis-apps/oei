@@ -3,17 +3,11 @@ module.exports = (sequelize, DataTypes) => {
     const ArchivoAplicacion = sequelize.define('ArchivoAplicacion', {
         id: {
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
         aplicacion: DataTypes.STRING,
-        fechaCreacionArchivo:{
-            type:DataTypes.DATE,
-            field:'fecha_creacion_archivo'
-        },
-        size:DataTypes.INTEGER,
-        fileName:DataTypes.STRING,
-        mimeType:DataTypes.STRING,
         fechaRegistro:{
             type:DataTypes.DATE,
             allowNull: false,

@@ -30,7 +30,7 @@ module.exports = (servicios, modelos) => {
   
     // metodos Factory
     AplicacionServicio.crear = (params) => {
-      return AplicacionServicio.guardar(AplicacionServicio.construir(params));
+      return AplicacionServicio.guardar(AplicacionServicio.construir(params),params);
     };
   
     AplicacionServicio.actualizar = (id, params) => {

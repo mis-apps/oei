@@ -4,26 +4,26 @@ module.exports = (servicios, modelos) => {
 
     // metodos Repository
     fraseArchivoServicio.listar = (params) => {
-        return modelos.fraseArchivo.findAll(fraseArchivoServicio.filtro(params));
+        return modelos.FraseArchivo.findAll(fraseArchivoServicio.filtro(params));
     };
 
     fraseArchivoServicio.encontrarUno = (params) => {
-        return modelos.fraseArchivo.findOne(fraseArchivoServicio.filtro(params));
+        return modelos.FraseArchivo.findOne(fraseArchivoServicio.filtro(params));
     };
 
     fraseArchivoServicio.construir = (params) => {
-        return modelos.fraseArchivo.build(params);
+        return modelos.FraseArchivo.build(params);
     };
 
-    fraseArchivoServicio.guardar = (fraseArchivo, params) => {
+    fraseArchivoServicio.guardar = (FraseArchivo, params) => {
         if (params) {
-            fraseArchivo.set(params);
+            FraseArchivo.set(params);
         }
-        return fraseArchivo.save();
+        return FraseArchivo.save();
     };
 
-    fraseArchivoServicio.destruir = (fraseArchivo) => {
-        return fraseArchivo.destroy();
+    fraseArchivoServicio.destruir = (FraseArchivo) => {
+        return FraseArchivo.destroy();
     };
 
     fraseArchivoServicio.filtro = (condiciones) => {
@@ -37,16 +37,16 @@ module.exports = (servicios, modelos) => {
 
     fraseArchivoServicio.actualizar = (id, params) => {
         return fraseArchivoServicio.obtener(id)
-            .then((fraseArchivo) => {
-                return fraseArchivoServicio.guardar(fraseArchivo, params);
+            .then((FraseArchivo) => {
+                return fraseArchivoServicio.guardar(FraseArchivo, params);
             });
     };
 
     fraseArchivoServicio.obtener = (id) => {
         return fraseArchivoServicio.encontrarUno({ id })
-            .then((fraseArchivo) => {
-                if (!fraseArchivo) throw new Error('No se ha encontrado');
-                return fraseArchivo;
+            .then((FraseArchivo) => {
+                if (!FraseArchivo) throw new Error('No se ha encontrado');
+                return FraseArchivo;
             });
     }
 

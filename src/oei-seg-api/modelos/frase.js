@@ -5,6 +5,7 @@ module.exports=(sequelize, DataTypes)=>{
     const  Frase = sequelize.define('Frase',{
         id:{
             type:DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull:false,
             primaryKey: true
         },

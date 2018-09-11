@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     const PalabraArchivo = sequelize.define('PalabraArchivo', {
         id: {
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },

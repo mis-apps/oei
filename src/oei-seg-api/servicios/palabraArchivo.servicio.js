@@ -4,26 +4,26 @@ module.exports = (servicios, modelos) => {
 
     // metodos Repository
     palabraArchivoServicio.listar = (params) => {
-        return modelos.palabraArchivo.findAll(palabraArchivoServicio.filtro(params));
+        return modelos.PalabraArchivo.findAll(palabraArchivoServicio.filtro(params));
     };
 
     palabraArchivoServicio.encontrarUno = (params) => {
-        return modelos.palabraArchivo.findOne(palabraArchivoServicio.filtro(params));
+        return modelos.PalabraArchivo.findOne(palabraArchivoServicio.filtro(params));
     };
 
     palabraArchivoServicio.construir = (params) => {
-        return modelos.palabraArchivo.build(params);
+        return modelos.PalabraArchivo.build(params);
     };
 
-    palabraArchivoServicio.guardar = (palabraArchivo, params) => {
+    palabraArchivoServicio.guardar = (PalabraArchivo, params) => {
         if (params) {
-            palabraArchivo.set(params);
+            PalabraArchivo.set(params);
         }
-        return palabraArchivo.save();
+        return PalabraArchivo.save();
     };
 
-    palabraArchivoServicio.destruir = (palabraArchivo) => {
-        return palabraArchivo.destroy();
+    palabraArchivoServicio.destruir = (PalabraArchivo) => {
+        return PalabraArchivo.destroy();
     };
 
     palabraArchivoServicio.filtro = (condiciones) => {
@@ -37,16 +37,16 @@ module.exports = (servicios, modelos) => {
 
     palabraArchivoServicio.actualizar = (id, params) => {
         return palabraArchivoServicio.obtener(id)
-            .then((palabraArchivo) => {
-                return palabraArchivoServicio.guardar(palabraArchivo, params);
+            .then((PalabraArchivo) => {
+                return palabraArchivoServicio.guardar(PalabraArchivo, params);
             });
     };
 
     palabraArchivoServicio.obtener = (id) => {
         return palabraArchivoServicio.encontrarUno({ id })
-            .then((palabraArchivo) => {
-                if (!palabraArchivo) throw new Error('No se ha encontrado');
-                return palabraArchivo;
+            .then((PalabraArchivo) => {
+                if (!PalabraArchivo) throw new Error('No se ha encontrado');
+                return PalabraArchivo;
             });
     }
 

@@ -1,8 +1,9 @@
 
 module.exports=(sequelize, DataTypes )=>{
-    const UsuarioRol =sequelize('UsuarioRol',{
+    const UsuarioRol =sequelize.define('UsuarioRol',{
     id:{
         type:DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
@@ -29,6 +30,7 @@ module.exports=(sequelize, DataTypes )=>{
     },
     fechaModificacion:{
         type:DataTypes.DATE,
+        allowNull:false,
         field:'fecha_modificacion'
     },
     usuarioModificacion:{

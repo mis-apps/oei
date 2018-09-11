@@ -4,22 +4,22 @@ module.exports = (servicios, modelos) => {
 
     // metodos Repository
     idiomaLocutorServicio.listar = (params) => {
-        return modelos.idiomaLocutor.findAll(idiomaLocutorServicio.filtro(params));
+        return modelos.IdiomaLocutor.findAll(idiomaLocutorServicio.filtro(params));
     };
 
     idiomaLocutorServicio.encontrarUno = (params) => {
-        return modelos.idiomaLocutor.findOne(idiomaLocutorServicio.filtro(params));
+        return modelos.IdiomaLocutor.findOne(idiomaLocutorServicio.filtro(params));
     };
 
     idiomaLocutorServicio.construir = (params) => {
-        return modelos.idiomaLocutor.build(params);
+        return modelos.IdiomaLocutor.build(params);
     };
 
-    idiomaLocutorServicio.guardar = (idiomaLocutor, params) => {
+    idiomaLocutorServicio.guardar = (IdiomaLocutor, params) => {
         if (params) {
-            idiomaLocutor.set(params);
+            IdiomaLocutor.set(params);
         }
-        return idiomaLocutor.save();
+        return IdiomaLocutor.save();
     };
 
     idiomaLocutorServicio.destruir = (IdiomaLocutor) => {
@@ -37,16 +37,16 @@ module.exports = (servicios, modelos) => {
 
     idiomaLocutorServicio.actualizar = (id, params) => {
         return idiomaLocutorServicio.obtener(id)
-            .then((idiomaLocutor) => {
-                return idiomaLocutorServicio.guardar(idiomaLocutor, params);
+            .then((IdiomaLocutor) => {
+                return idiomaLocutorServicio.guardar(IdiomaLocutor, params);
             });
     };
 
     idiomaLocutorServicio.obtener = (id) => {
         return idiomaLocutorServicio.encontrarUno({ id })
-            .then((idiomaLocutor) => {
-                if (!idiomaLocutor) throw new Error('No se ha encontrado');
-                return idiomaLocutor;
+            .then((IdiomaLocutor) => {
+                if (!IdiomaLocutor) throw new Error('No se ha encontrado');
+                return IdiomaLocutor;
             });
     }
 

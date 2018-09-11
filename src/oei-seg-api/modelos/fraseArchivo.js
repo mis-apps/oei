@@ -1,11 +1,14 @@
 
 module.exports=(sequelize, DataTypes )=>{
-    const FraseArchivo =sequelize('FraseArchivo',{
+    
+    const FraseArchivo =sequelize.define('FraseArchivo',{
     id:{
         type:DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
+    
     fechaRegistro:{
         type:DataTypes.DATE,
         allowNull: false,
@@ -25,7 +28,6 @@ module.exports=(sequelize, DataTypes )=>{
         field:'usuario_modificacion'
     },
     activo: DataTypes.BOOLEAN
-
 
     },{
 

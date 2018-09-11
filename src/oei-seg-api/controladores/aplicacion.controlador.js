@@ -1,3 +1,4 @@
+'use strict'
 module.exports = (router, servicios) => {
 
     router.get('/aplicacion', (req, res, next) => {
@@ -33,11 +34,13 @@ module.exports = (router, servicios) => {
     });
 
     router.delete('/aplicacion/:id', (req, res, next) => {
-        return servicios.Aplicacion.eliminar(req.params.id)
+             return servicios.Aplicacion.eliminar(req.params.id)
             .then(() => {
                 return res.status(200).json({});
             })
             .catch(next);
     });
+
+    
 
 };

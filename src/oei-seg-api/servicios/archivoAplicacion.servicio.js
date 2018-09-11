@@ -4,26 +4,26 @@ module.exports = (servicios, modelos) => {
 
     // metodos Repository
     archivoAplicacionServicio.listar = (params) => {
-        return modelos.archivoAplicacion.findAll(archivoAplicacionServicio.filtro(params));
+        return modelos.ArchivoAplicacion.findAll(archivoAplicacionServicio.filtro(params));
     };
 
     archivoAplicacionServicio.encontrarUno = (params) => {
-        return modelos.archivoAplicacion.findOne(archivoAplicacionServicio.filtro(params));
+        return modelos.ArchivoAplicacion.findOne(archivoAplicacionServicio.filtro(params));
     };
 
     archivoAplicacionServicio.construir = (params) => {
-        return modelos.archivoAplicacion.build(params);
+        return modelos.ArchivoAplicacion.build(params);
     };
 
-    archivoAplicacionServicio.guardar = (archivoAplicacion, params) => {
+    archivoAplicacionServicio.guardar = (ArchivoAplicacion, params) => {
         if (params) {
-            archivoAplicacion.set(params);
+            ArchivoAplicacion.set(params);
         }
-        return archivoAplicacion.save();
+        return ArchivoAplicacion.save();
     };
 
-    archivoAplicacionServicio.destruir = (archivoAplicacion) => {
-        return archivoAplicacion.destroy();
+    archivoAplicacionServicio.destruir = (ArchivoAplicacion) => {
+        return ArchivoAplicacion.destroy();
     };
 
     archivoAplicacionServicio.filtro = (condiciones) => {
@@ -37,16 +37,16 @@ module.exports = (servicios, modelos) => {
 
     archivoAplicacionServicio.actualizar = (id, params) => {
         return archivoAplicacionServicio.obtener(id)
-            .then((archivoAplicacion) => {
-                return archivoAplicacionServicio.guardar(archivoAplicacion, params);
+            .then((ArchivoAplicacion) => {
+                return archivoAplicacionServicio.guardar(ArchivoAplicacion, params);
             });
     };
 
     archivoAplicacionServicio.obtener = (id) => {
         return archivoAplicacionServicio.encontrarUno({ id })
-            .then((archivoAplicacion) => {
-                if (!archivoAplicacion) throw new Error('No se ha encontrado');
-                return archivoAplicacion;
+            .then((ArchivoAplicacion) => {
+                if (!ArchivoAplicacion) throw new Error('No se ha encontrado');
+                return ArchivoAplicacion;
             });
     }
 

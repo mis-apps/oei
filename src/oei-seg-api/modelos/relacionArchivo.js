@@ -3,10 +3,15 @@ module.exports = (sequelize, DataTypes) => {
     const RelacionArchivo = sequelize.define('RelacionArchivo', {
         id: {
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
-        descripcion:DataTypes.INTEGER,
+        descripcion:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+
+        },
         fechaRegistro:{
             type:DataTypes.DATE,
             allowNull: false,
@@ -19,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         fechaModificacion:{
             type:DataTypes.DATE,
+            allowNull:false,
             field:'fecha_modificacion'
         },
         usuarioModificacion:{
@@ -29,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
 
     }, {
             //schema: 'core',
-            tableName: 'neg_relaciones_archivo',
+            tableName: 'relacion_archivo',
             timestamps: false
         });
 

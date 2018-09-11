@@ -1,13 +1,17 @@
 
 module.exports=(sequelize, DataTypes )=>{
-    const IdiomaLocutor =sequelize('IdiomaLocutor',{
+    const IdiomaLocutor =sequelize.define('IdiomaLocutor',{
     id:{
         type:DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    idioma:DataTypes.STRING,
-    nativo:DataTypes.BOOLEAN, 
+    idioma:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    nativo:DataTypes.BOOLEAN,
     fechaRegistro:{
         type:DataTypes.DATE,
         allowNull: false,
@@ -31,7 +35,7 @@ module.exports=(sequelize, DataTypes )=>{
 
     },{
     //schema: 'core',
-    tableName:'frase_archivo',
+    tableName:'idioma_locutor',
     timestamps: false
     });
 
