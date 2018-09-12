@@ -32,7 +32,7 @@ module.exports = (servicios, modelos) => {
 
     // metodos Factory
     idiomaLocutorServicio.crear = (params) => {
-        return idiomaLocutorServicio.guardar(idiomaLocutorServicio.construir(params));
+        return idiomaLocutorServicio.guardar(idiomaLocutorServicio.construir(params), params);
     };
 
     idiomaLocutorServicio.actualizar = (id, params) => {

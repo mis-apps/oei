@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
 
     }, {
             //schema: 'core',
-            tableName: 'palabra_archivo',
+            tableName: 'neg_palabra_archivo',
             timestamps: false
         });
 

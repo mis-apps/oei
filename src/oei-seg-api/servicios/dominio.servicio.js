@@ -32,7 +32,7 @@ module.exports = (servicios, modelos) => {
 
     // metodos Factory
     DominioServicio.crear = (params) => {
-        return DominioServicio.guardar(DominioServicio.construir(params));
+        return DominioServicio.guardar(DominioServicio.construir(params),params);
     };
 
     DominioServicio.actualizar = (id, params) => {

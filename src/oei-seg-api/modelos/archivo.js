@@ -45,9 +45,47 @@ module.exports=(sequelize,DataTypes)=>{
 
     },{
         //schema:'oei',
-        tableName:'archivo',
+        tableName:'neg_archivo',
         timestamp:false
 
     });
+
+    Archivo.asociar = (modelos) => {
+
+        modelos.Archivo.belongsTo(modelos.FraseArchivo, {
+            as: 'fraseArchivo',
+            foreignkey: 'id'
+        });
+
+        modelos.Archivo.belongsTo(modelos.ArchivoAplicacion, {
+              as: 'archivoAplicacion',
+              foreignkey: 'id'
+        });
+
+        modelos.Archivo.belongsTo(modelos.RelacionArchivo, {
+              as: 'relacionArchivo',
+              foreignkey: 'id'
+        });
+
+        modelos.Archivo.belongsTo(modelos.RelacionArchivo, {
+              as: 'relacionArchivo',
+              foreignkey: 'id'
+        });
+
+        modelos.Archivo.belongsTo(modelos.AtributoArchivo, {
+              as: 'atributoArchivo',
+              foreignkey: 'id'
+        });
+
+         modelos.Archivo.belongsTo(modelos.ArchivoLocutor, {
+             as: 'archivoLocutor',
+             foreignkey: 'id'
+         });
+
+     
+    };
+
+
+
     return Archivo;
 };

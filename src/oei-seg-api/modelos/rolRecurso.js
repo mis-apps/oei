@@ -47,7 +47,7 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'core',
-        tableName:'rol_recurso',
+        tableName:'seg_rol_recurso',
         timestamps: false
     });
 

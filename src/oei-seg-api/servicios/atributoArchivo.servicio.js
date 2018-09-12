@@ -32,7 +32,7 @@ module.exports = (servicios, modelos) => {
 
     // metodos Factory
     atributoArchivoServicio.crear = (params) => {
-        return AtributoArchivoServicio.guardar(AtributoArchivoServicio.construir(params));
+        return AtributoArchivoServicio.guardar(AtributoArchivoServicio.construir(params),params);
     };
 
     atributoArchivoServicio.actualizar = (id, params) => {

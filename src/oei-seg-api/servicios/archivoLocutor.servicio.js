@@ -32,7 +32,7 @@ module.exports = (servicios, modelos) => {
 
     // metodos Factory
     archivoLocutorServicio.crear = (params) => {
-        return archivoLocutorServicio.guardar(archivoLocutorServicio.construir(params));
+        return archivoLocutorServicio.guardar(archivoLocutorServicio.construir(params),params);
     };
 
     archivoLocutorServicio.actualizar = (id, params) => {

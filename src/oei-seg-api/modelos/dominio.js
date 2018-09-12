@@ -32,7 +32,7 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'core',
-        tableName:'dominio',
+        tableName:'neg_dominio',
         timestamps: false
     });
     

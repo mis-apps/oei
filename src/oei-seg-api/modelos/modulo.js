@@ -33,7 +33,7 @@ module.exports=(sequelize, DataTypes)=>{
         },
         usuarioModificacion:{
             type:DataTypes.STRING,
-            field:'usuario_modificacion'
+            field:'seg_usuario_modificacion'
         },
         activo: DataTypes.BOOLEAN
     },{

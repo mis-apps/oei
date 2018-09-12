@@ -32,7 +32,7 @@ module.exports = (servicios, modelos) => {
 
     // metodos Factory
     palabraArchivoServicio.crear = (params) => {
-        return palabraArchivoServicio.guardar(palabraArchivoServicio.construir(params));
+        return palabraArchivoServicio.guardar(palabraArchivoServicio.construir(params), params);
     };
 
     palabraArchivoServicio.actualizar = (id, params) => {

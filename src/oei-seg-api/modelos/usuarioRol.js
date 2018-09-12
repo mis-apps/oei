@@ -42,7 +42,7 @@ module.exports=(sequelize, DataTypes )=>{
 
     },{
     //schema: 'core',
-    tableName:'usuario_rol',
+    tableName:'seg_usuario_rol',
     timestamps: false
     });
 

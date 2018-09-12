@@ -32,7 +32,7 @@ module.exports = (servicios, modelos) => {
 
     // metodos Factory
     CriterioServicio.crear = (params) => {
-        return CriterioServicio.guardar(CriterioServicio.construir(params));
+        return CriterioServicio.guardar(CriterioServicio.construir(params),params);
     };
 
     CriterioServicio.actualizar = (id, params) => {

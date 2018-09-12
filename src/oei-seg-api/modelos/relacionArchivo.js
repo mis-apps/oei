@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
 
     }, {
             //schema: 'core',
-            tableName: 'relacion_archivo',
+            tableName: 'neg_relacion_archivo',
             timestamps: false
         });
 

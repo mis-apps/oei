@@ -40,7 +40,7 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'oei',
-        tableName:'aplicacion',
+        tableName:'seg_aplicacion',
         timestamps: false
     });
 

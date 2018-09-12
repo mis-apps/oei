@@ -30,7 +30,7 @@ module.exports=(sequelize,DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'core',
-        tableName:'criterio',
+        tableName:'neg_criterio',
         timestamp:false
 
     });

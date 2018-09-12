@@ -30,7 +30,7 @@ module.exports=(sequelize, DataTypes )=>{
 
     },{
     //schema: 'oei',
-    tableName:'archivo_locutor',
+    tableName:'neg_archivo_locutor',
     timestamps: false
     });
 

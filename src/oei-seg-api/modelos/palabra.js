@@ -39,7 +39,7 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'core',
-        tableName:'palabra',
+        tableName:'neg_palabra',
         timestamps: false
     });
 

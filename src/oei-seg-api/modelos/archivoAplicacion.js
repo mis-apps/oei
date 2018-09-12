@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         {
             //schema: 'oei',
-            tableName: 'archivo_aplicacion',
+            tableName: 'neg_archivo_aplicacion',
             timestamps: false
         });
 

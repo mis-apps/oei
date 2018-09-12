@@ -35,7 +35,7 @@ module.exports=(sequelize, DataTypes )=>{
 
     },{
     //schema: 'core',
-    tableName:'idioma_locutor',
+    tableName:'neg_idioma_locutor',
     timestamps: false
     });
 

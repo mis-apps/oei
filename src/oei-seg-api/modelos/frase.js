@@ -31,10 +31,21 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'core',
-        tableName:'frase',
+        tableName:'neg_frase',
         timestamps: false
     });
     
+    Frase.asociar=(modelos)=>{
+
+        modelos.Frase.belongsTo(modelos.FraseArchivo,{
+            as:'fraseArchivo',
+            foreignkey: 'id'
+        });
+
+    };
+
+
+
     return Frase;
 
 };

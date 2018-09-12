@@ -41,7 +41,7 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'oei',
-        tableName:'locutor',
+        tableName:'neg_locutor',
         timestamps: false
     });
 

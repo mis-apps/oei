@@ -32,7 +32,7 @@ module.exports = (servicios, modelos) => {
 
     // metodos Factory
     usuarioRolServicio.crear = (params) => {
-        return usuarioRolServicio.guardar(usuarioRolServicio.construir(params));
+        return usuarioRolServicio.guardar(usuarioRolServicio.construir(params), params);
     };
 
     usuarioRolServicio.actualizar = (id, params) => {

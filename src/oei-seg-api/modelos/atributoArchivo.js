@@ -33,7 +33,7 @@ module.exports=(sequelize, DataTypes )=>{
 
     },{
     //schema: 'oei',
-    tableName:'atributo_archivo',
+    tableName:'neg_atributo_archivo',
     timestamps: false
     });
     

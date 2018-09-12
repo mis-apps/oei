@@ -32,7 +32,7 @@ module.exports = (servicios, modelos) => {
 
     // metodos Factory
     UsuarioServicio.crear = (params) => {
-        return UsuarioServicio.guardar(UsuarioServicio.construir(params));
+        return UsuarioServicio.guardar(UsuarioServicio.construir(params), params);
     };
 
     UsuarioServicio.actualizar = (id, params) => {

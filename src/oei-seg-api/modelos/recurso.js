@@ -36,7 +36,7 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'core',
-        tableName:'recurso',
+        tableName:'seg_recurso',
         timestamps: false
     });
     
