@@ -64,12 +64,12 @@ module.exports=(sequelize,DataTypes)=>{
 
         modelos.Archivo.belongsTo(modelos.RelacionArchivo, {
               as: 'relacionArchivo',
-              foreignkey: 'id'
+              foreignkey1: 'id'
         });
 
         modelos.Archivo.belongsTo(modelos.RelacionArchivo, {
               as: 'relacionArchivo',
-              foreignkey: 'id'
+              foreignkey2: 'id'
         });
 
         modelos.Archivo.belongsTo(modelos.AtributoArchivo, {
@@ -81,6 +81,11 @@ module.exports=(sequelize,DataTypes)=>{
              as: 'archivoLocutor',
              foreignkey: 'id'
          });
+
+        modelos.Archivo.belongsTo(modelos.PalabraArchivo, {
+             as: 'palabraArchivo',
+             foreignkey: 'id'
+        });
 
      
     };

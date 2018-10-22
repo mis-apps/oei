@@ -40,6 +40,7 @@ modelos['Rol']=db.import('./modelos/rol.js');
 modelos['RolRecurso']=db.import('./modelos/rolRecurso.js');
 modelos['Usuario']=db.import('./modelos/usuario.js');
 modelos['UsuarioRol']=db.import('./modelos/usuarioRol.js');
+modelos['Persona'] = db.import('./modelos/persona.js');
 
 // cargado de servicios
 const servicios = {};
@@ -63,6 +64,8 @@ servicios['Rol'] = require('./servicios/rol.servicio')(servicios, modelos, Seque
 servicios['RolRecurso'] = require('./servicios/rolRecurso.servicio')(servicios, modelos, Sequelize.Op);
 servicios['Usuario'] = require('./servicios/usuario.servicio')(servicios, modelos, Sequelize.Op);
 servicios['UsuarioRol'] = require('./servicios/usuarioRol.servicio')(servicios, modelos, Sequelize.Op);
+servicios['Persona'] = require('./servicios/persona.servicio')(servicios, modelos, Sequelize.Op);
+servicios['Login'] = require('./servicios/seguridad/login.servicio')(servicios, modelos, Sequelize.Op);
 
 // creación de la aplicación express
 const app = express();
@@ -94,7 +97,11 @@ require('./controladores/rol.controlador')(router, servicios);
 require('./controladores/rolRecurso.controlador')(router, servicios);
 require('./controladores/usuario.controlador')(router, servicios);
 require('./controladores/usuarioRol.controlador')(router, servicios);
+require('./controladores/persona.controlador')(router, servicios);
+require('./controladores/seguridad/login.controlador')(router, servicios);
 
+//app.set('views', path.join(__dirname, 'vistas'));
+app.set('view engine', 'ejs');
 // cargado del enrutador en la aplicación
 app.use('/api-oei/v1', router);
 
@@ -102,7 +109,7 @@ app.use('/api-oei/v1', router);
 // manejo de errores
 app.use((err, req, res, next) => {
     console.error(err.stack);
-    return res.status(400).json({});
+    return res.status(400).json({}); 
 });
 
 // inicialización de la aplicación

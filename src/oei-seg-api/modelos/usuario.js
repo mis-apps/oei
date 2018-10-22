@@ -8,33 +8,36 @@ module.exports=(sequelize, DataTypes)=>{
             autoIncrement: true,
             allowNull:false,
             primaryKey: true
+        }, 
+        idPersona: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            field: 'id_persona'
         },
-        idPersona:{
-            type:DataTypes.INTEGER,
-            allowNull:false,
-            field:'id_persona'
-        },
-        userName:{
+        username:{
             type:DataTypes.STRING,
-            allowNull:false,
-            field:'user_name'
+            allowNull:true
         },
         password:DataTypes.STRING,
-        estado:DataTypes.STRING,
+        estado:{
+            type:DataTypes.STRING,
+            allowNull: true,
+            field:'estado'
+        },
 
         fechaRegistro:{
             type:DataTypes.DATE,
-            allowNull: false,
-            field:'fecha_registro'
+            allowNull: true,
+            field:'fecha_modificacion'
         },
         usuarioRegistro:{
             type:DataTypes.STRING,
-            allowNull:false,
-            field:'usuario_registro'
+            allowNull:true,
+            field:'usuario_creacion'
         },
         fechaModificacion:{
             type:DataTypes.DATE,
-            field:'fecha_modificacion'
+            field:'fecha_creacion'
         },
         usuarioModificacion:{
             type:DataTypes.STRING,
@@ -46,7 +49,18 @@ module.exports=(sequelize, DataTypes)=>{
         tableName:'seg_usuario',
         timestamps: false
     });
+/*
+     Usuario.asociar = (modelos) => {
 
+         modelos.Usuario.belongsTo(modelos.Persona, {
+             as: 'persona',
+             foreignkey: {
+                 fieldName: 'idPersona'
+             }
+         });
+
+     };
+*/
     return Usuario;
 
 };

@@ -9,10 +9,10 @@ module.exports=(sequelize, DataTypes)=>{
             allowNull:false,
             primaryKey: true
         },
-        primer_apellido:DataTypes.STRING,
-        segundo_apellido:DataTypes.STRING,
-        primer_nombre:DataTypes.STRING,
-        segundo_nombre:DataTypes.STRING,
+        //primer_apellido:DataTypes.STRING,
+        //segundo_apellido:DataTypes.STRING,
+        //primer_nombre:DataTypes.STRING,
+        //segundo_nombre:DataTypes.STRING,
         genero:DataTypes.STRING,
         fechaNacimiento:{
             type:DataTypes.DATE,
@@ -44,6 +44,20 @@ module.exports=(sequelize, DataTypes)=>{
         tableName:'neg_locutor',
         timestamps: false
     });
+
+    Locutor.asociar = (modelos) => {
+
+    modelos.Locutor.belongsTo(modelos.ArchivoLocutor, {
+         as: 'archivoLocutor',
+         foreignkey: 'id'
+    });
+
+     modelos.Locutor.belongsTo(modelos.IdiomaLocutor, {
+         as: 'idiomaLocutor',
+         foreignkey: 'id'
+     });
+
+    }
 
     return Locutor;
 
