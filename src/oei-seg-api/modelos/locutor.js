@@ -45,6 +45,7 @@ module.exports=(sequelize, DataTypes)=>{
         timestamps: false
     });
 
+/*
     Locutor.asociar = (modelos) => {
 
     modelos.Locutor.belongsTo(modelos.ArchivoLocutor, {
@@ -58,6 +59,7 @@ module.exports=(sequelize, DataTypes)=>{
      });
 
     }
+    */
 
     return Locutor;
 

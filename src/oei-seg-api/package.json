@@ -4,7 +4,7 @@
   "description": "Proyecto OEI con Node.js y Express ",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Marcelo Escalera",
@@ -19,7 +19,5 @@
     "mysql2": "^1.6.1",
     "sequelize": "^4.38.0"
   },
-  "devDependencies": {
-    "nodemon": "^1.18.3"
-  }
+  "devDependencies": {}
 }

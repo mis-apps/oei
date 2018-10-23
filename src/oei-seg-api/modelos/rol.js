@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         idAplicacion: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             field: 'id_aplicacion'
         },
         nombre: {

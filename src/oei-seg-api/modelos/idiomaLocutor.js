@@ -39,13 +39,15 @@ module.exports=(sequelize, DataTypes )=>{
     timestamps: false
     });
 
+/*
     IdiomaLocutor.asociar=(modelos)=>{
     modelos.IdiomaLocutor.hasMany(modelos.Locutor,{
         as: 'locutor',
         foreignkey:'id'
     });
     };
-    
+    */
+
     return IdiomaLocutor;
 
 };

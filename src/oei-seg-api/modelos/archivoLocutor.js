@@ -34,8 +34,9 @@ module.exports=(sequelize, DataTypes )=>{
     timestamps: false
     });
 
+/*
     ArchivoLocutor.asociar=(modelos)=>{
-        
+
     modelos.ArchivoLocutor.hasMany(modelos.Archivo,{
         as: 'archivo',
         foreignkey:'id'
@@ -48,8 +49,9 @@ module.exports=(sequelize, DataTypes )=>{
 
 
     };
+    */
 
-  
+
     return ArchivoLocutor;
 
 };

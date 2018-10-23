@@ -8,11 +8,11 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         idRol: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             field: 'id_rol'
         },
         idRecurso: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             field: 'id_recurso'
         },
         lectura: {

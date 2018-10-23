@@ -8,7 +8,7 @@ const Sequelize = require('sequelize');
 const port=process.env.PORT||3333;
 
 // parametros: base de datos, usuario, contraseña
-const db = new Sequelize('oei', 'root', '', {
+const db = new Sequelize('oei', 'root', 'zxcvbnm', {
     host: 'localhost',
     port: '3306',
     dialect: 'mysql',
@@ -59,7 +59,7 @@ servicios['Dominio'] = require('./servicios/dominio.servicio')(servicios, modelo
 servicios['Frase'] = require('./servicios/frase.servicio')(servicios, modelos, Sequelize.Op);
 servicios['FraseArchivo'] = require('./servicios/fraseArchivo.servicio')(servicios, modelos, Sequelize.Op);
 servicios['IdiomaLocutor'] = require('./servicios/idiomaLocutor.servicio')(servicios, modelos, Sequelize.Op);
-servicios['Locutor'] = require('./servicios/Locutor.servicio')(servicios, modelos, Sequelize.Op);
+servicios['Locutor'] = require('./servicios/locutor.servicio')(servicios, modelos, Sequelize.Op);
 servicios['Modulo'] = require('./servicios/modulo.servicio')(servicios, modelos, Sequelize.Op);
 servicios['Palabra'] = require('./servicios/palabra.servicio')(servicios, modelos, Sequelize.Op);
 servicios['PalabraArchivo'] = require('./servicios/palabraArchivo.servicio')(servicios, modelos, Sequelize.Op);
@@ -70,7 +70,6 @@ servicios['RolRecurso'] = require('./servicios/rolRecurso.servicio')(servicios, 
 servicios['Usuario'] = require('./servicios/usuario.servicio')(servicios, modelos, Sequelize.Op);
 servicios['UsuarioRol'] = require('./servicios/usuarioRol.servicio')(servicios, modelos, Sequelize.Op);
 servicios['Persona'] = require('./servicios/persona.servicio')(servicios, modelos, Sequelize.Op);
-servicios['Login'] = require('./servicios/seguridad/login.servicio')(servicios, modelos, Sequelize.Op);
 
 // creación de la aplicación express
 const app = express();

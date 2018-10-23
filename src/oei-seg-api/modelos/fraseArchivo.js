@@ -1,6 +1,6 @@
 
 module.exports=(sequelize, DataTypes )=>{
-    
+
     const FraseArchivo =sequelize.define('FraseArchivo',{
     id:{
         type:DataTypes.INTEGER,
@@ -8,7 +8,7 @@ module.exports=(sequelize, DataTypes )=>{
         allowNull: false,
         primaryKey: true
     },
-    
+
     fechaRegistro:{
         type:DataTypes.DATE,
         allowNull: false,
@@ -36,6 +36,7 @@ module.exports=(sequelize, DataTypes )=>{
     timestamps: false
     });
 
+/*
     FraseArchivo.asociar=(modelos)=>{
 
     modelos.FraseArchivo.hasMany(modelos.Frase,{
@@ -49,6 +50,7 @@ module.exports=(sequelize, DataTypes )=>{
     });
 
     };
+*/
 
     return FraseArchivo;
 

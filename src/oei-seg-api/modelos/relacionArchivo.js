@@ -7,6 +7,14 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             primaryKey: true
         },
+        idArchivoOrigen: {
+            type: DataTypes.INTEGER,
+            field: 'id_archivo_origen'
+        },
+        idArchivoRelacionado: {
+            type: DataTypes.INTEGER,
+            field: 'id_archivo_relacionado'
+        },
         descripcion:{
             type:DataTypes.INTEGER,
             allowNull:false,
@@ -39,19 +47,21 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         });
 
-        RelacionArchivo.asociar=(modelos)=>{
+/*
+    RelacionArchivo.asociar=(modelos)=>{
 
-            modelos.RelacionArchivo.hasMany(modelos.Archivo,{
-            as: 'archivo',
-            foreignkey:'id'
-            });
+        modelos.RelacionArchivo.hasMany(modelos.Archivo, {
+            as: 'archivoOrigen',
+            foreignkey:'idArchivoOrigen'
+        });
 
-            modelos.RelacionArchivo.hasMany(modelos.Archivo,{
-                as: 'archivo',
-                foreignkey:'id'
-            });
+        modelos.RelacionArchivo.hasMany(modelos.Archivo, {
+            as: 'archivoRelacionado',
+            foreignkey:'idArchivoRelacionado'
+        });
 
-        };
+    };
+    */
 
     return RelacionArchivo;
 

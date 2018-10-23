@@ -36,15 +36,17 @@ module.exports=(sequelize, DataTypes )=>{
     tableName:'neg_atributo_archivo',
     timestamps: false
     });
-    
+
+    /*
     AtributoArchivo.asociar=(modelos)=>{
 
     modelos.AtributoArchivo.hasMany(modelos.Archivo,{
         as: 'archivo',
         foreignkey:'id'
     });
-    
+
     };
+    */
 
     return AtributoArchivo;
 

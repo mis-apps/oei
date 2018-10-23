@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         });
 
+/*
         PalabraArchivo.asociar=(modelos)=>{
 
             modelos.PalabraArchivo.hasMany(modelos.Archivo,{
@@ -46,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
             });
 
         };
-        
+        */
 
     return PalabraArchivo;
 

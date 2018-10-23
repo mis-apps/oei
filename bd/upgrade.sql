@@ -146,3 +146,41 @@ CREATE TABLE oei.seg_usuario_rol (
 INSERT INTO oei.seg_usuario_rol (id, id_usuario, id_rol, fecha_inicio, fecha_fin, fecha_registro, usuario_registro, fecha_modificacion, usuario_modificacion, activo) VALUES (1, 1, 1, '2018-01-01 00:00:00', '2018-10-22 18:13:31', '2018-01-01 00:00:00', 'admin', '2018-10-22 18:13:31', null, true);
 
 
+
+
+-- vista de permisos de usuario
+CREATE OR REPLACE VIEW oei.seg_usuario_permiso AS
+SELECT (100*modu.id + 10*rol.id + rec.id) id,
+       u.id id_usuario,
+       modu.nombre modulo,
+	   modu.posicion posicion_modulo,
+       rec.nombre recurso,       
+       rec.posicion posicion_recurso,
+       rec.titulo,
+       rec.es_menu,
+       rolrec.lectura,
+       rolrec.creacion,
+       rolrec.modificacion,
+       rolrec.eliminacion
+  FROM seg_usuario u,
+       seg_usuario_rol urol,
+       seg_rol rol,
+       seg_rol_recurso rolrec,
+       seg_recurso rec,
+       seg_modulo modu
+ WHERE u.id = urol.id_usuario
+   AND urol.activo
+   AND urol.id_rol = rol.id
+   AND rol.activo
+   AND rol.id= rolrec.id_rol
+   AND rolrec.activo
+   AND rec.id = rolrec.id_recurso
+   AND rec.activo
+   AND rec.id_modulo = modu.id
+   AND modu.activo;
+ 
+
+
+ 
+
+

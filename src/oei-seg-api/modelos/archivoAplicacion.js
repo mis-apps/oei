@@ -27,20 +27,22 @@ module.exports = (sequelize, DataTypes) => {
             field:'usuario_modificacion'
         },
         activo: DataTypes.BOOLEAN
-        },
-        {
+    },
+    {
             //schema: 'oei',
             tableName: 'neg_archivo_aplicacion',
             timestamps: false
         });
 
+/*
         ArchivoAplicacion.asociar=(modelos)=>{
             modelos.ArchivoAplicacion.hasMany(modelos.Archivo,{
             as: 'archivo',
             foreignkey:'id'
             });
         };
+        */
 
-    return ArchivoAplicacion;
+        return ArchivoAplicacion;
 
-};
+    };

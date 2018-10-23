@@ -43,15 +43,16 @@ module.exports=(sequelize, DataTypes)=>{
         timestamps: false
     });
 
-
+/*
      Palabra.asociar = (modelos) => {
 
         modelos.Palabra.belongsTo(modelos.PalabraArchivo, {
         as: 'archivoLocutor',
         foreignkey: 'id'
         });
-            
+
     }
+    */
 
     return Palabra;
 

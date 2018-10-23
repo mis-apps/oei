@@ -50,6 +50,7 @@ module.exports=(sequelize,DataTypes)=>{
 
     });
 
+/*
     Archivo.asociar = (modelos) => {
 
         modelos.Archivo.belongsTo(modelos.FraseArchivo, {
@@ -63,13 +64,13 @@ module.exports=(sequelize,DataTypes)=>{
         });
 
         modelos.Archivo.belongsTo(modelos.RelacionArchivo, {
-              as: 'relacionArchivo',
-              foreignkey1: 'id'
+              as: 'archivoOrigen',
+              foreignkey: 'idArchivoOrigen'
         });
 
         modelos.Archivo.belongsTo(modelos.RelacionArchivo, {
-              as: 'relacionArchivo',
-              foreignkey2: 'id'
+              as: 'ArchivoRelacionados',
+              foreignkey: 'idArchivoRelacionado'
         });
 
         modelos.Archivo.belongsTo(modelos.AtributoArchivo, {
@@ -87,10 +88,10 @@ module.exports=(sequelize,DataTypes)=>{
              foreignkey: 'id'
         });
 
-     
+
     };
 
-
+*/
 
     return Archivo;
 };

@@ -34,7 +34,8 @@ module.exports=(sequelize, DataTypes)=>{
         tableName:'neg_frase',
         timestamps: false
     });
-    
+
+    /*
     Frase.asociar=(modelos)=>{
 
         modelos.Frase.belongsTo(modelos.FraseArchivo,{
@@ -43,7 +44,7 @@ module.exports=(sequelize, DataTypes)=>{
         });
 
     };
-
+    */
 
 
     return Frase;
