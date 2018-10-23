@@ -35,16 +35,16 @@ module.exports=(sequelize, DataTypes)=>{
         timestamps: false
     });
 
-    /*
+    
     Frase.asociar=(modelos)=>{
 
-        modelos.Frase.belongsTo(modelos.FraseArchivo,{
+        modelos.Frase.hasMany(modelos.FraseArchivo,{
             as:'fraseArchivo',
-            foreignkey: 'id'
+            foreignKey: 'idFrase'
         });
 
     };
-    */
+    
 
 
     return Frase;

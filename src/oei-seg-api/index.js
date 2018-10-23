@@ -8,7 +8,7 @@ const Sequelize = require('sequelize');
 const port=process.env.PORT||3333;
 
 // parametros: base de datos, usuario, contraseña
-const db = new Sequelize('oei', 'root', 'zxcvbnm', {
+const db = new Sequelize('oei', 'root', '123456', {
     host: 'localhost',
     port: '3306',
     dialect: 'mysql',

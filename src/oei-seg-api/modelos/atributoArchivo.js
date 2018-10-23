@@ -8,6 +8,13 @@ module.exports=(sequelize, DataTypes )=>{
         allowNull: false,
         primaryKey: true
     },
+
+    idArchivo: {
+         type: DataTypes.INTEGER,
+         allowNull: false,
+         field: 'id_archivo'
+    },
+
     atributo:DataTypes.STRING,
     valor:DataTypes.STRING,
     fechaRegistro:{
@@ -37,16 +44,20 @@ module.exports=(sequelize, DataTypes )=>{
     timestamps: false
     });
 
-    /*
+    
     AtributoArchivo.asociar=(modelos)=>{
 
-    modelos.AtributoArchivo.hasMany(modelos.Archivo,{
+    modelos.AtributoArchivo.belongsTo(modelos.Archivo, {
         as: 'archivo',
-        foreignkey:'id'
+            foreignkey: {
+                name: 'idArchivo',
+                field: 'id_archivo',
+                allowNull: false
+            }
     });
 
     };
-    */
+    
 
     return AtributoArchivo;
 

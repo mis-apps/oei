@@ -45,21 +45,21 @@ module.exports=(sequelize, DataTypes)=>{
         timestamps: false
     });
 
-/*
+
     Locutor.asociar = (modelos) => {
 
-    modelos.Locutor.belongsTo(modelos.ArchivoLocutor, {
+    modelos.Locutor.hasMany(modelos.ArchivoLocutor, {
          as: 'archivoLocutor',
-         foreignkey: 'id'
+         foreignkey: 'idLocutor'
     });
 
-     modelos.Locutor.belongsTo(modelos.IdiomaLocutor, {
+     modelos.Locutor.hasMany(modelos.IdiomaLocutor, {
          as: 'idiomaLocutor',
-         foreignkey: 'id'
+         foreignkey: 'idLocutor'
      });
 
     }
-    */
+    
 
     return Locutor;
 

@@ -6,10 +6,12 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull: false,
             primaryKey:true
         },
+
         tipoArchivo:{
             type:DataTypes.STRING,
             field:'tipo_archivo'
         },
+
         nombre: DataTypes.STRING,
         descripcion: DataTypes.STRING,
         fechaCreacionArchivo:{
@@ -50,48 +52,48 @@ module.exports=(sequelize,DataTypes)=>{
 
     });
 
-/*
+
     Archivo.asociar = (modelos) => {
 
-        modelos.Archivo.belongsTo(modelos.FraseArchivo, {
+        modelos.Archivo.hasMany(modelos.FraseArchivo, {
             as: 'fraseArchivo',
-            foreignkey: 'id'
+            foreignkey: 'idArchivo'
         });
 
-        modelos.Archivo.belongsTo(modelos.ArchivoAplicacion, {
+        modelos.Archivo.hasMany(modelos.ArchivoAplicacion, {
               as: 'archivoAplicacion',
-              foreignkey: 'id'
+              foreignkey: 'idArchivo'
         });
 
-        modelos.Archivo.belongsTo(modelos.RelacionArchivo, {
-              as: 'archivoOrigen',
+        modelos.Archivo.hasMany(modelos.RelacionArchivo, {
+              as: 'relacionArchivo',
               foreignkey: 'idArchivoOrigen'
         });
 
-        modelos.Archivo.belongsTo(modelos.RelacionArchivo, {
-              as: 'ArchivoRelacionados',
+        modelos.Archivo.hasMany(modelos.RelacionArchivo, {
+              as: 'relacionArchivo',
               foreignkey: 'idArchivoRelacionado'
         });
 
-        modelos.Archivo.belongsTo(modelos.AtributoArchivo, {
+        modelos.Archivo.hasMany(modelos.AtributoArchivo, {
               as: 'atributoArchivo',
-              foreignkey: 'id'
+              foreignkey: 'idArchivo'
         });
 
-         modelos.Archivo.belongsTo(modelos.ArchivoLocutor, {
+         modelos.Archivo.hasMany(modelos.ArchivoLocutor, {
              as: 'archivoLocutor',
-             foreignkey: 'id'
+             foreignkey: 'idLocutor'
          });
 
-        modelos.Archivo.belongsTo(modelos.PalabraArchivo, {
+        modelos.Archivo.hasMany(modelos.PalabraArchivo, {
              as: 'palabraArchivo',
-             foreignkey: 'id'
+             foreignkey: 'idPalabra'
         });
 
 
     };
 
-*/
+
 
     return Archivo;
 };

@@ -9,6 +9,18 @@ module.exports=(sequelize, DataTypes )=>{
         primaryKey: true
     },
 
+    idArchivo:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        field: 'id_archivo'
+    },
+
+    idFrase: {
+       type: DataTypes.INTEGER,
+       allowNull: false,
+       field: 'id_frase'
+    },
+
     fechaRegistro:{
         type:DataTypes.DATE,
         allowNull: false,
@@ -36,21 +48,27 @@ module.exports=(sequelize, DataTypes )=>{
     timestamps: false
     });
 
-/*
+
     FraseArchivo.asociar=(modelos)=>{
 
-    modelos.FraseArchivo.hasMany(modelos.Frase,{
+    modelos.FraseArchivo.belongsTo(modelos.Frase, {
     as: 'frase',
-    foreignkey:'id'
+    foreignkey:{
+        name:'idFrase',
+        field: 'id_frase',
+        allowNull: false}
     });
 
-    modelos.FraseArchivo.hasMany(modelos.Archivo,{
+    modelos.FraseArchivo.belongsTo(modelos.Archivo, {
         as: 'archivo',
-        foreignkey:'id'
+        foreignkey: {
+            name: 'idArchivo',
+            field: 'id_archivo',
+            allowNull: false}
     });
 
     };
-*/
+
 
     return FraseArchivo;
 

@@ -7,6 +7,19 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             primaryKey: true
         },
+
+        idPalabra: {
+              type: DataTypes.INTEGER,
+              allowNull: false,
+              field: 'id_palabra'
+        },
+
+        idArchivo: {
+              type: DataTypes.INTEGER,
+              allowNull: false,
+              field: 'id_archivo'
+        },
+
         fechaRegistro:{
             type:DataTypes.DATE,
             allowNull: false,
@@ -33,21 +46,29 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         });
 
-/*
+
         PalabraArchivo.asociar=(modelos)=>{
 
-            modelos.PalabraArchivo.hasMany(modelos.Archivo,{
+            modelos.PalabraArchivo.belongsTo(modelos.Archivo, {
             as: 'archivo',
-            foreignkey:'id'
+            foreignkey: {
+                name: 'idArchivo',
+                field: 'id_archivo',
+                allowNull: false
+            }
             });
 
-            modelos.PalabraArchivo.hasMany(modelos.Palabra,{
+            modelos.PalabraArchivo.belongsTo(modelos.Palabra, {
                 as: 'palabra',
-                foreignkey:'id'
+                foreignkey: {
+                    name: 'idPalabra',
+                    field: 'id_palabra',
+                    allowNull: false
+                }
             });
 
         };
-        */
+        
 
     return PalabraArchivo;
 

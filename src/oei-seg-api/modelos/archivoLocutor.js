@@ -7,6 +7,19 @@ module.exports=(sequelize, DataTypes )=>{
         allowNull: false,
         primaryKey: true
     },
+
+    idArchivo: {
+       type: DataTypes.INTEGER,
+       allowNull: false,
+       field: 'id_archivo'
+      },
+
+     idLocutor: {
+       type: DataTypes.INTEGER,
+       allowNull: false,
+       field: 'id_locutor'
+      },
+
     fechaRegistro:{
         type:DataTypes.DATE,
         allowNull: false,
@@ -34,22 +47,30 @@ module.exports=(sequelize, DataTypes )=>{
     timestamps: false
     });
 
-/*
+
     ArchivoLocutor.asociar=(modelos)=>{
 
-    modelos.ArchivoLocutor.hasMany(modelos.Archivo,{
-        as: 'archivo',
-        foreignkey:'id'
+    modelos.ArchivoLocutor.belongsTo(modelos.Archivo, {
+         as: 'archivo',
+             foreignkey: {
+                 name: 'idArchivo',
+                 field: 'id_archivo',
+                 allowNull: false
+             }
     });
 
-    modelos.ArchivoLocutor.hasMany(modelos.Locutor,{
+    modelos.ArchivoLocutor.belongsTo(modelos.Locutor, {
         as: 'locutor',
-        foreignkey:'id'
+        foreignkey: {
+            name: 'idLocutor',
+            field: 'id_locutor',
+            allowNull: false
+        }
     });
 
 
     };
-    */
+
 
 
     return ArchivoLocutor;

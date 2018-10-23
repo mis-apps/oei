@@ -47,21 +47,30 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         });
 
-/*
+
     RelacionArchivo.asociar=(modelos)=>{
 
-        modelos.RelacionArchivo.hasMany(modelos.Archivo, {
-            as: 'archivoOrigen',
-            foreignkey:'idArchivoOrigen'
+        modelos.RelacionArchivo.belongsTo(modelos.Archivo, {
+            as: 'archivo',
+            foreignkey: {
+                name: 'idArchivoOrigen',
+                field:'id_archivo',
+                allowNull: false
+            }
         });
 
-        modelos.RelacionArchivo.hasMany(modelos.Archivo, {
-            as: 'archivoRelacionado',
-            foreignkey:'idArchivoRelacionado'
-        });
+         modelos.RelacionArchivo.belongsTo(modelos.Archivo, {
+             as: 'archivo',
+             foreignkey: {
+                 name: 'idArchivoRelacionado',
+                 field: 'id_archivo',
+                 allowNull: false
+             }
+         });
 
+       
     };
-    */
+
 
     return RelacionArchivo;
 

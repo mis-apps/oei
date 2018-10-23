@@ -7,6 +7,13 @@ module.exports=(sequelize, DataTypes )=>{
         allowNull: false,
         primaryKey: true
     },
+    
+    idLocutor: {
+         type: DataTypes.INTEGER,
+         allowNull: false,
+         field: 'id_locutor'
+    },
+
     idioma:{
         type:DataTypes.STRING,
         allowNull:false
@@ -39,14 +46,19 @@ module.exports=(sequelize, DataTypes )=>{
     timestamps: false
     });
 
-/*
+
     IdiomaLocutor.asociar=(modelos)=>{
-    modelos.IdiomaLocutor.hasMany(modelos.Locutor,{
+    modelos.IdiomaLocutor.belongsTo(modelos.Locutor, {
         as: 'locutor',
-        foreignkey:'id'
+        foreignkey: {
+            name: 'idLocutor',
+            field: 'id_locutor',
+            allowNull: false
+        }
     });
+    
     };
-    */
+    
 
     return IdiomaLocutor;
 

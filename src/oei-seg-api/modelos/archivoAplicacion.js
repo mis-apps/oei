@@ -7,6 +7,12 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             primaryKey: true
         },
+
+        idArchivo: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            field: 'id_archivo'
+        },
         aplicacion: DataTypes.STRING,
         fechaRegistro:{
             type:DataTypes.DATE,
@@ -34,14 +40,18 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false
         });
 
-/*
+
         ArchivoAplicacion.asociar=(modelos)=>{
-            modelos.ArchivoAplicacion.hasMany(modelos.Archivo,{
+            modelos.ArchivoAplicacion.belongsTo(modelos.Archivo, {
             as: 'archivo',
-            foreignkey:'id'
+            foreignkey:{
+                name:'idArchivo',
+                field:'id_Archivo',
+                allow:false
+                }
             });
         };
-        */
+    
 
         return ArchivoAplicacion;
 
