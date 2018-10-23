@@ -1,51 +1,70 @@
+module.exports = (sequelize, DataTypes) => {
 
-
-module.exports=(sequelize, DataTypes)=>{
-
-    const Rol = sequelize.define('Rol',{
-        id:{
-            type:DataTypes.INTEGER,
+    const Rol = sequelize.define('Rol', {
+        id: {
+            type: DataTypes.INTEGER,
             autoIncrement: true,
-            allowNull:false,
+            allowNull: false,
             primaryKey: true
         },
-        nombre:{
-            type:DataTypes.STRING,
-            allowNull:false
+        idAplicacion: {
+            type: Sequelize.INTEGER,
+            field: 'id_aplicacion'
         },
-        descripcion:DataTypes.STRING,
-        fechaRegistro:{
-            type:DataTypes.DATE,
+        nombre: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        descripcion: DataTypes.STRING,
+        fechaRegistro: {
+            type: DataTypes.DATE,
             allowNull: false,
-            field:'fecha_registro'
+            field: 'fecha_registro'
         },
-        usuarioRegistro:{
-            type:DataTypes.STRING,
-            allowNull:false,
-            field:'usuario_registro'
+        usuarioRegistro: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            field: 'usuario_registro'
         },
-        fechaModificacion:{
-            type:DataTypes.DATE,
-            field:'fecha_modificacion'
+        fechaModificacion: {
+            type: DataTypes.DATE,
+            field: 'fecha_modificacion'
         },
-        usuarioModificacion:{
-            type:DataTypes.STRING,
-            field:'usuario_modificacion'
+        usuarioModificacion: {
+            type: DataTypes.STRING,
+            field: 'usuario_modificacion'
         },
         activo: DataTypes.BOOLEAN
-    },{
-        //schema:'core',
-        tableName:'seg_rol',
+    }, {
+        tableName: 'seg_rol',
         timestamps: false
     });
-    
-    Rol.asociar=(modelos)=>{
-        modelos.Rol.hasMany(modelos.Aplicacion,{
-            as: 'aplicacion',
-            foreignkey:'id'
-    });
+
+    Rol.asociar = (modelos) => {
+
+        modelos.Rol.belongsTo(modelos.Aplicacion, {
+          as: 'aplicacion',
+          foreignKey: {
+            name: 'idAplicacion',
+            field: 'id_aplicacion',
+            allowNull: false}
+        });
+
+        modelos.Rol.belongsToMany(modelos.Recurso, {
+            as: 'recursos',
+            through: modelos.RolRecurso,
+            foreignKey: 'idRol',
+            otherKey: 'idRecurso'
+        });
+
+        modelos.Rol.belongsToMany(modelos.Usuario, {
+            as: 'usuarios',
+            through: modelos.UsuarioRol,
+            foreignKey: 'idRol',
+            otherKey: 'idUsuario'
+        });
+
     };
-  
 
     return Rol;
 

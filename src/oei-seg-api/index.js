@@ -5,10 +5,10 @@ const bodyParser =require('body-parser');
 const mysqltwo =require('mysql2');
 const Sequelize = require('sequelize');
 
-const port=process.env.PORT||3333
+const port=process.env.PORT||3333;
 
 // parametros: base de datos, usuario, contraseña
-const db = new Sequelize('oei', 'usroei', '123456', {
+const db = new Sequelize('oei', 'root', '', {
     host: 'localhost',
     port: '3306',
     dialect: 'mysql',
@@ -41,6 +41,11 @@ modelos['RolRecurso']=db.import('./modelos/rolRecurso.js');
 modelos['Usuario']=db.import('./modelos/usuario.js');
 modelos['UsuarioRol']=db.import('./modelos/usuarioRol.js');
 modelos['Persona'] = db.import('./modelos/persona.js');
+
+// relaciones
+Object.keys(modelos).forEach((nombre) => {
+  if (modelos[nombre].asociar) modelos[nombre].asociar(modelos);
+});
 
 // cargado de servicios
 const servicios = {};
@@ -100,8 +105,7 @@ require('./controladores/usuarioRol.controlador')(router, servicios);
 require('./controladores/persona.controlador')(router, servicios);
 require('./controladores/seguridad/login.controlador')(router, servicios);
 
-//app.set('views', path.join(__dirname, 'vistas'));
-app.set('view engine', 'ejs');
+
 // cargado del enrutador en la aplicación
 app.use('/api-oei/v1', router);
 
@@ -109,7 +113,7 @@ app.use('/api-oei/v1', router);
 // manejo de errores
 app.use((err, req, res, next) => {
     console.error(err.stack);
-    return res.status(400).json({}); 
+    return res.status(400).json({});
 });
 
 // inicialización de la aplicación

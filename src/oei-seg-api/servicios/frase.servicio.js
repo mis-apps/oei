@@ -1,4 +1,4 @@
-module.exports = (servicios, modelos) => {
+module.exports = (servicios, modelos, Op) => {
 
     const FraseServicio = {};
 

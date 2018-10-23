@@ -6,26 +6,23 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             primaryKey: true
         },
-
         primerApellido: {
             type: DataTypes.STRING,
-            field:'primer_apellido'
+            field: 'primer_apellido'
         },
         segundoApellido: {
             type: DataTypes.STRING,
             field: 'segundo_apellido'
         },
-        nombres:DataTypes.STRING,
-        ci: DataTypes.STRING,
-
+        nombres: DataTypes.STRING,
         fechaRegistro: {
             type: DataTypes.DATE,
-            allowNull: true,
+            allowNull: false,
             field: 'fecha_registro'
         },
         usuarioRegistro: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
             field: 'usuario_registro'
         },
         fechaModificacion: {
@@ -48,13 +45,12 @@ module.exports = (sequelize, DataTypes) => {
     Persona.asociar = (modelos) => {
 
         modelos.Persona.hasOne(modelos.Usuario, {
-            as: 'usuario'
+          as: 'usuario',
+          foreignKey: 'idPersona',
         });
 
-         
     };
 
-
-
     return Persona;
+
 };

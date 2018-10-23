@@ -1,48 +1,63 @@
-module.exports=(sequelize, DataTypes)=>{
+module.exports = (sequelize, DataTypes) => {
 
-    const Aplicacion = sequelize.define('Aplicacion',{
-        id:{
+    const Aplicacion = sequelize.define('Aplicacion', {
+        id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
-            allowNull:false,
+            allowNull: false,
             primaryKey: true
         },
-        nombreCorto:{
-            type:DataTypes.STRING,
-            allowNull:false,
-            field:'nombre_corto'
-        },
-        nombreCompleto:{
-            type:DataTypes.STRING,
-            allowNull:false,
-            field:'nombre_completo'
-        },
-        alias:DataTypes.STRING,
-        descripcion:DataTypes.STRING,
-        fechaCreacion:{
-            type:DataTypes.DATE,
+        nombreCorto: {
+            type: DataTypes.STRING,
             allowNull: false,
-            field:'fecha_creacion'
+            field: 'nombre_corto'
         },
-        usuarioCreacion:{
-            type:DataTypes.STRING,
-            allowNull:false,
-            field:'usuario_creacion'
+        nombreCompleto: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            field: 'nombre_completo'
         },
-        fechaModificacion:{
-            type:DataTypes.DATE,
-            field:'fecha_modificacion'
+        alias: DataTypes.STRING,
+        descripcion: DataTypes.STRING,
+        fechaCreacion: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            field: 'fecha_creacion'
         },
-        usuarioModificacion:{
-            type:DataTypes.STRING,
-            field:'usuario_modificacion'
+        usuarioCreacion: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            field: 'usuario_creacion'
+        },
+        fechaModificacion: {
+            type: DataTypes.DATE,
+            allowNull: true,
+            field: 'fecha_modificacion'
+        },
+        usuarioModificacion: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            field: 'usuario_modificacion'
         },
         activo: DataTypes.BOOLEAN
-    },{
-        //schema:'oei',
-        tableName:'seg_aplicacion',
+    }, {
+        tableName: 'seg_aplicacion',
         timestamps: false
     });
+
+    Aplicacion.asociar = (modelos) => {
+
+        modelos.Aplicacion.hasMany(modelos.Rol, {
+          as: 'roles',
+          foreignKey: 'idAplicacion',
+      });
+
+        modelos.Aplicacion.hasMany(modelos.Modulo, {
+          as: 'modulos',
+          foreignKey: 'idAplicacion',
+      });
+
+    };
 
     return Aplicacion;
 

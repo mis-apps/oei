@@ -7,17 +7,14 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             primaryKey: true
         },
+        idUsuario: {
+            type: DataTypes.INTEGER,
+            field: 'id_usuario'
+        },
         idRol: {
             type: DataTypes.INTEGER,
             field: 'id_rol'
         },
-        idUsuario: {
-            type: DataTypes.INTEGER,
-            field: 'id_usuario'
-
-        },
-
-
         fechaInicio: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -25,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         fechaFin: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
             field: 'fecha_fin'
         },
         fechaRegistro: {
@@ -40,7 +37,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         fechaModificacion: {
             type: DataTypes.DATE,
-            allowNull: false,
             field: 'fecha_modificacion'
         },
         usuarioModificacion: {
@@ -48,28 +44,10 @@ module.exports = (sequelize, DataTypes) => {
             field: 'usuario_modificacion'
         },
         activo: DataTypes.BOOLEAN
-
-
     }, {
-        //schema: 'core',
         tableName: 'seg_usuario_rol',
         timestamps: false
     });
-
-    /*
-
-    UsuarioRol.asociar=(modelos)=>{
-    modelos.UsuarioRol.hasMany(modelos.Usuario,{
-        as: 'usuario',
-        foreignkey:'id'
-    });
-
-    modelos.UsuarioRol.hasMany(modelos.Rol,{
-        as: 'rol',
-        foreignkey:'id'
-    });
-    };
-    */
 
     return UsuarioRol;
 
