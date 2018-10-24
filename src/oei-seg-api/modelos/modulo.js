@@ -36,11 +36,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         usuarioModificacion: {
             type: DataTypes.STRING,
-            field: 'seg_usuario_modificacion'
+            field: 'usuario_modificacion'
         },
         activo: DataTypes.BOOLEAN
     }, {
-        tableName: 'modulo',
+        tableName: 'seg_modulo',
         timestamps: false
     });
 

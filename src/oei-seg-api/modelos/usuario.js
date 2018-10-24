@@ -25,16 +25,16 @@ module.exports = (sequelize, DataTypes) => {
         fechaRegistro: {
             type: DataTypes.DATE,
             allowNull: false,
-            field: 'fecha_modificacion'
+            field: 'fecha_registro'
         },
         usuarioRegistro: {
             type: DataTypes.STRING,
             allowNull: false,
-            field: 'usuario_creacion'
+            field: 'usuario_registro'
         },
         fechaModificacion: {
             type: DataTypes.DATE,
-            field: 'fecha_creacion'
+            field: 'fecha_modificacion'
         },
         usuarioModificacion: {
             type: DataTypes.STRING,
@@ -61,6 +61,11 @@ module.exports = (sequelize, DataTypes) => {
             through: modelos.UsuarioRol,
             foreignKey: 'idUsuario',
             otherKey: 'idRol'
+        });
+
+        modelos.Usuario.hasMany(modelos.UsuarioPermiso, {
+          as: 'permisos',
+          foreignKey: 'idUsuario'
         });
 
     };

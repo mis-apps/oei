@@ -174,6 +174,7 @@ SELECT (100*modu.id + 10*rol.id + rec.id) id,
    AND rol.activo
    AND rol.id= rolrec.id_rol
    AND rolrec.activo
+   AND rolrec.lectura
    AND rec.id = rolrec.id_recurso
    AND rec.activo
    AND rec.id_modulo = modu.id
