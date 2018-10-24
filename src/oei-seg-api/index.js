@@ -43,9 +43,9 @@ modelos['UsuarioRol']=db.import('./modelos/usuarioRol.js');
 modelos['Persona'] = db.import('./modelos/persona.js');
 
 // relaciones
-Object.keys(modelos).forEach((nombre) => {
+/*Object.keys(modelos).forEach((nombre) => {
   if (modelos[nombre].asociar) modelos[nombre].asociar(modelos);
-});
+});*/
 
 // cargado de servicios
 const servicios = {};
