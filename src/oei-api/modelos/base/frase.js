@@ -2,21 +2,14 @@
 
 module.exports=(sequelize, DataTypes)=>{
 
-    const Palabra = sequelize.define('Palabra',{
+    const  Frase = sequelize.define('Frase',{
         id:{
             type:DataTypes.INTEGER,
             autoIncrement: true,
             allowNull:false,
             primaryKey: true
         },
-        idioma:{
-            type:DataTypes.STRING,
-            allowNull:false
-        },
-        palabra:{
-            type:DataTypes.STRING,
-            allowNull:false
-        },
+        descripcion:DataTypes.STRING,
         fechaRegistro:{
             type:DataTypes.DATE,
             allowNull: false,
@@ -29,7 +22,6 @@ module.exports=(sequelize, DataTypes)=>{
         },
         fechaModificacion:{
             type:DataTypes.DATE,
-            allowNull:false,
             field:'fecha_modificacion'
         },
         usuarioModificacion:{
@@ -39,21 +31,22 @@ module.exports=(sequelize, DataTypes)=>{
         activo: DataTypes.BOOLEAN
     },{
         //schema:'core',
-        tableName:'neg_palabra',
+        tableName:'neg_frase',
         timestamps: false
     });
 
-/*
-     Palabra.asociar = (modelos) => {
+    /*
+    Frase.asociar=(modelos)=>{
 
-        modelos.Palabra.belongsTo(modelos.PalabraArchivo, {
-        as: 'archivoLocutor',
-        foreignkey: 'id'
+        modelos.Frase.hasMany(modelos.FraseArchivo,{
+            as:'fraseArchivo',
+            foreignKey: 'idFrase'
         });
 
-    }
+    };
     */
 
-    return Palabra;
+
+    return Frase;
 
 };

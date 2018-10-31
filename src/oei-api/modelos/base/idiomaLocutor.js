@@ -7,7 +7,7 @@ module.exports=(sequelize, DataTypes )=>{
         allowNull: false,
         primaryKey: true
     },
-    
+
     idLocutor: {
          type: DataTypes.INTEGER,
          allowNull: false,
@@ -46,7 +46,7 @@ module.exports=(sequelize, DataTypes )=>{
     timestamps: false
     });
 
-
+    /*
     IdiomaLocutor.asociar=(modelos)=>{
     modelos.IdiomaLocutor.belongsTo(modelos.Locutor, {
         as: 'locutor',
@@ -56,9 +56,10 @@ module.exports=(sequelize, DataTypes )=>{
             allowNull: false
         }
     });
-    
+
     };
-    
+    */
+
 
     return IdiomaLocutor;
 

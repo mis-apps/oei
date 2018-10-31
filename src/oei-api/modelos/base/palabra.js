@@ -2,24 +2,21 @@
 
 module.exports=(sequelize, DataTypes)=>{
 
-    const Locutor = sequelize.define('Locutor',{
+    const Palabra = sequelize.define('Palabra',{
         id:{
             type:DataTypes.INTEGER,
             autoIncrement: true,
             allowNull:false,
             primaryKey: true
         },
-        //primer_apellido:DataTypes.STRING,
-        //segundo_apellido:DataTypes.STRING,
-        //primer_nombre:DataTypes.STRING,
-        //segundo_nombre:DataTypes.STRING,
-        genero:DataTypes.STRING,
-        fechaNacimiento:{
-            type:DataTypes.DATE,
-            allowNull: false,
-            field:'fecha_nacimiento'
+        idioma:{
+            type:DataTypes.STRING,
+            allowNull:false
         },
-        procedencia:DataTypes.STRING,
+        palabra:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
         fechaRegistro:{
             type:DataTypes.DATE,
             allowNull: false,
@@ -32,6 +29,7 @@ module.exports=(sequelize, DataTypes)=>{
         },
         fechaModificacion:{
             type:DataTypes.DATE,
+            allowNull:false,
             field:'fecha_modificacion'
         },
         usuarioModificacion:{
@@ -40,27 +38,22 @@ module.exports=(sequelize, DataTypes)=>{
         },
         activo: DataTypes.BOOLEAN
     },{
-        //schema:'oei',
-        tableName:'neg_locutor',
+        //schema:'core',
+        tableName:'neg_palabra',
         timestamps: false
     });
 
+    /*
+     Palabra.asociar = (modelos) => {
 
-    Locutor.asociar = (modelos) => {
-
-    modelos.Locutor.hasMany(modelos.ArchivoLocutor, {
-         as: 'archivoLocutor',
-         foreignkey: 'idLocutor'
-    });
-
-     modelos.Locutor.hasMany(modelos.IdiomaLocutor, {
-         as: 'idiomaLocutor',
-         foreignkey: 'idLocutor'
-     });
+        modelos.Palabra.belongsTo(modelos.PalabraArchivo, {
+        as: 'archivoLocutor',
+        foreignkey: 'id'
+        });
 
     }
-    
+    */
 
-    return Locutor;
+    return Palabra;
 
 };

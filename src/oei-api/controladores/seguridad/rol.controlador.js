@@ -1,7 +1,7 @@
 module.exports = (router, servicios) => {
 
     router.get('/rol', (req, res, next) => {
-        return servicios.Rol.listar()
+        return servicios.Rol.listar({activo: true})
             .then((roles) => {
                 return res.status(200).json(roles);
             })

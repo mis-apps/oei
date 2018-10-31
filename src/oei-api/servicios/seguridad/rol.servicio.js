@@ -32,12 +32,15 @@ module.exports = (servicios, modelos, Op) => {
 
     // metodos Factory
     RolServicio.crear = (params) => {
+        params.fechaRegistro = new Date();
+        params.activo = true;
         return RolServicio.guardar(RolServicio.construir(params), params);
     };
 
     RolServicio.actualizar = (id, params) => {
         return RolServicio.obtener(id)
             .then((Rol) => {
+                params.fechaModificacion = new Date();
                 return RolServicio.guardar(Rol, params);
             });
     };

@@ -19,15 +19,15 @@ module.exports = (sequelize, DataTypes) => {
         },
         alias: DataTypes.STRING,
         descripcion: DataTypes.STRING,
-        fechaCreacion: {
+        fechaRegistro: {
             type: DataTypes.DATE,
             allowNull: false,
-            field: 'fecha_creacion'
+            field: 'fecha_registro'
         },
-        usuarioCreacion: {
+        usuarioRegistro: {
             type: DataTypes.STRING,
             allowNull: false,
-            field: 'usuario_creacion'
+            field: 'usuario_registro'
         },
         fechaModificacion: {
             type: DataTypes.DATE,

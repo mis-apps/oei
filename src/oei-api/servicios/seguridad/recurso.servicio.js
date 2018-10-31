@@ -32,12 +32,15 @@ module.exports = (servicios, modelos, Op) => {
 
     // metodos Factory
     RecursoServicio.crear = (params) => {
+        params.fechaRegistro = new Date();
+        params.activo = true;
         return RecursoServicio.guardar(RecursoServicio.construir(params), params);
     };
 
     RecursoServicio.actualizar = (id, params) => {
         return RecursoServicio.obtener(id)
             .then((Recurso) => {
+                params.fechaModificacion = new Date();
                 return RecursoServicio.guardar(Recurso, params);
             });
     };

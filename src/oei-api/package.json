@@ -1,7 +1,7 @@
 {
   "name": "oei-api",
   "version": "1.0.0",
-  "description": "Proyecto OEI con Node.js y Express ",
+  "description": "Proyecto OEI-API",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

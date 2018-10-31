@@ -1,25 +1,25 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const RelacionArchivo = sequelize.define('RelacionArchivo', {
+    const PalabraArchivo = sequelize.define('PalabraArchivo', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
-        idArchivoOrigen: {
-            type: DataTypes.INTEGER,
-            field: 'id_archivo_origen'
-        },
-        idArchivoRelacionado: {
-            type: DataTypes.INTEGER,
-            field: 'id_archivo_relacionado'
-        },
-        descripcion:{
-            type:DataTypes.INTEGER,
-            allowNull:false,
 
+        idPalabra: {
+              type: DataTypes.INTEGER,
+              allowNull: false,
+              field: 'id_palabra'
         },
+
+        idArchivo: {
+              type: DataTypes.INTEGER,
+              allowNull: false,
+              field: 'id_archivo'
+        },
+
         fechaRegistro:{
             type:DataTypes.DATE,
             allowNull: false,
@@ -32,7 +32,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         fechaModificacion:{
             type:DataTypes.DATE,
-            allowNull:false,
             field:'fecha_modificacion'
         },
         usuarioModificacion:{
@@ -43,35 +42,35 @@ module.exports = (sequelize, DataTypes) => {
 
     }, {
             //schema: 'core',
-            tableName: 'neg_relacion_archivo',
+            tableName: 'neg_palabra_archivo',
             timestamps: false
         });
 
+        /*
+        PalabraArchivo.asociar=(modelos)=>{
 
-    RelacionArchivo.asociar=(modelos)=>{
-
-        modelos.RelacionArchivo.belongsTo(modelos.Archivo, {
+            modelos.PalabraArchivo.belongsTo(modelos.Archivo, {
             as: 'archivo',
             foreignkey: {
-                name: 'idArchivoOrigen',
-                field:'id_archivo',
+                name: 'idArchivo',
+                field: 'id_archivo',
                 allowNull: false
             }
-        });
+            });
 
-         modelos.RelacionArchivo.belongsTo(modelos.Archivo, {
-             as: 'archivo',
-             foreignkey: {
-                 name: 'idArchivoRelacionado',
-                 field: 'id_archivo',
-                 allowNull: false
-             }
-         });
+            modelos.PalabraArchivo.belongsTo(modelos.Palabra, {
+                as: 'palabra',
+                foreignkey: {
+                    name: 'idPalabra',
+                    field: 'id_palabra',
+                    allowNull: false
+                }
+            });
 
-       
-    };
+        };
+        */
 
 
-    return RelacionArchivo;
+    return PalabraArchivo;
 
 };

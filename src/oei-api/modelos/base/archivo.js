@@ -52,7 +52,7 @@ module.exports=(sequelize,DataTypes)=>{
 
     });
 
-
+    /*
     Archivo.asociar = (modelos) => {
 
         modelos.Archivo.hasMany(modelos.FraseArchivo, {
@@ -92,6 +92,7 @@ module.exports=(sequelize,DataTypes)=>{
 
 
     };
+    */
 
 
 

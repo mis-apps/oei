@@ -48,7 +48,7 @@ module.exports=(sequelize, DataTypes )=>{
     timestamps: false
     });
 
-
+    /*
     FraseArchivo.asociar=(modelos)=>{
 
     modelos.FraseArchivo.belongsTo(modelos.Frase, {
@@ -68,7 +68,7 @@ module.exports=(sequelize, DataTypes )=>{
     });
 
     };
-
+    */
 
     return FraseArchivo;
 

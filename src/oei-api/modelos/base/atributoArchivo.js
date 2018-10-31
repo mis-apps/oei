@@ -44,7 +44,7 @@ module.exports=(sequelize, DataTypes )=>{
     timestamps: false
     });
 
-    
+    /*
     AtributoArchivo.asociar=(modelos)=>{
 
     modelos.AtributoArchivo.belongsTo(modelos.Archivo, {
@@ -57,7 +57,8 @@ module.exports=(sequelize, DataTypes )=>{
     });
 
     };
-    
+    */
+
 
     return AtributoArchivo;
 
