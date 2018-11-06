@@ -41,7 +41,7 @@ module.exports = (router, modelos) => {
                     username: usuario.username,
                     idUsuario: usuario.id,
                     idPersona: usuario.persona.id,
-                    nombrePersona: `${usuario.persona.nombres} ${usuario.persona.primerApellido} ${usuario.persona.segundoApellido}`,
+                    nombreCompleto: `${usuario.persona.nombres} ${usuario.persona.primerApellido} ${usuario.persona.segundoApellido ? usuario.persona.segundoApellido : ''}`,
                     modulos: usuario.permisos.map(permiso => {
                         return Object.assign(
                           {},

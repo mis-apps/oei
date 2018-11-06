@@ -1,5 +1,3 @@
-
-
 module.exports=(sequelize, DataTypes)=>{
 
     const  Dominio = sequelize.define('Dominio',{
@@ -35,7 +33,7 @@ module.exports=(sequelize, DataTypes)=>{
         tableName:'neg_dominio',
         timestamps: false
     });
-    
+
     return Dominio;
 
 };

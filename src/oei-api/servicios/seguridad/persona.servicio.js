@@ -34,12 +34,15 @@ module.exports = (servicios, modelos, Op) => {
 
     // metodos Factory
     PersonaServicio.crear = (params) => {
+        params.fechaRegistro = new Date();
+        params.activo = true;
         return PersonaServicio.guardar(PersonaServicio.construir(params), params);
     };
 
     PersonaServicio.actualizar = (id, params) => {
         return PersonaServicio.obtener(id)
             .then((Persona) => {
+                params.fechaModificacion = new Date();
                 return PersonaServicio.guardar(Persona, params);
             });
     };

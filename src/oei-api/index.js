@@ -4,6 +4,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysqltwo = require('mysql2');
 const Sequelize = require('sequelize');
+const validator = require('node-input-validator');
+
+validator.messages({
+    'required': 'El campo es requerido'
+});
+
 const router = express.Router();
 const app = express();
 
@@ -91,7 +97,7 @@ servicios['UsuarioRol'] = require('./servicios/seguridad/usuarioRol.servicio')(s
 
 
 //--------------------------------------------------
-// Definición del Controlador
+// Definición de Controladores
 //--------------------------------------------------
 // base
 require('./controladores/base/archivo.controlador')(router, servicios);
@@ -116,7 +122,7 @@ require('./controladores/seguridad/persona.controlador')(router, servicios);
 require('./controladores/seguridad/recurso.controlador')(router, servicios);
 require('./controladores/seguridad/rol.controlador')(router, servicios);
 require('./controladores/seguridad/rolRecurso.controlador')(router, servicios);
-require('./controladores/seguridad/usuario.controlador')(router, servicios);
+require('./controladores/seguridad/usuario.controlador')(router, servicios, modelos, validator);
 require('./controladores/seguridad/usuarioRol.controlador')(router, servicios);
 
 

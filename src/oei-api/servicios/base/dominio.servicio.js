@@ -32,12 +32,15 @@ module.exports = (servicios, modelos, Op) => {
 
     // metodos Factory
     DominioServicio.crear = (params) => {
-        return DominioServicio.guardar(DominioServicio.construir(params),params);
+        params.fechaRegistro = new Date();
+        params.activo = true;
+        return DominioServicio.guardar(DominioServicio.construir(params), params);
     };
 
     DominioServicio.actualizar = (id, params) => {
         return DominioServicio.obtener(id)
             .then((Dominio) => {
+                params.fechaModificacion = new Date();
                 return DominioServicio.guardar(Dominio, params);
             });
     };

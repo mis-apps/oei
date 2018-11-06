@@ -1,7 +1,7 @@
 module.exports = (router, servicios) => {
 
     router.get('/dominio', (req, res, next) => {
-        return servicios.Dominio.listar()
+        return servicios.Dominio.listar({activo: true})
             .then((dominios) => {
                 return res.status(200).json(dominios);
             })

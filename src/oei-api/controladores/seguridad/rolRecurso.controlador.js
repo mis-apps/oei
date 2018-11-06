@@ -17,7 +17,7 @@ module.exports = (router, servicios) => {
     });
 
     router.get('/rolRecurso/:id', (req, res, next) => {
-        return servicios.RolRecurso.obtener(req.params.id)
+        return servicios.RolRecurso.listar({idRecurso: req.params.id})
             .then((rolesRecursos) => {
                 return res.status(200).json(rolesRecursos);
             })

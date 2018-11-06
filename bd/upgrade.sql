@@ -53,7 +53,7 @@ INSERT INTO oei.seg_modulo (id, id_aplicacion, posicion, nombre, fecha_registro,
 CREATE TABLE oei.seg_persona (
   id INT NOT NULL AUTO_INCREMENT,
   primer_apellido VARCHAR(30) NOT NULL,
-  segundo_apellido VARCHAR(30) NOT NULL,
+  segundo_apellido VARCHAR(30),
   nombres VARCHAR(50) NOT NULL,
   fecha_registro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   usuario_registro VARCHAR(50) NOT NULL,
@@ -162,8 +162,6 @@ CREATE TABLE oei.seg_usuario_rol (
   id INT NOT NULL AUTO_INCREMENT,
   id_usuario INT NOT NULL,
   id_rol INT NOT NULL,
-  fecha_inicio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  fecha_fin TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
   fecha_registro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   usuario_registro VARCHAR(50) NOT NULL,
   fecha_modificacion TIMESTAMP NULL DEFAULT NULL,
@@ -173,7 +171,7 @@ CREATE TABLE oei.seg_usuario_rol (
   CONSTRAINT fk_usr_rol_usr FOREIGN KEY (id_usuario) REFERENCES oei.seg_usuario(id),
   CONSTRAINT fk_usr_rol_rol FOREIGN KEY (id_rol) REFERENCES oei.seg_rol (id)
 ) ENGINE=MyISAM;
-INSERT INTO oei.seg_usuario_rol (id, id_usuario, id_rol, fecha_inicio, fecha_fin, fecha_registro, usuario_registro, fecha_modificacion, usuario_modificacion, activo) VALUES (1, 1, 1, '2018-01-01 00:00:00', '2018-10-22 18:13:31', '2018-01-01 00:00:00', 'admin', null, null, true);
+INSERT INTO oei.seg_usuario_rol (id, id_usuario, id_rol, fecha_registro, usuario_registro, fecha_modificacion, usuario_modificacion, activo) VALUES (1, 1, 1, '2018-01-01 00:00:00', 'admin', null, null, true);
 
 
 -- vista de permisos de usuario

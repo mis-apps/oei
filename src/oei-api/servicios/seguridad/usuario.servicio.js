@@ -32,27 +32,37 @@ module.exports = (servicios, modelos, Op) => {
 
     // metodos Factory
     UsuarioServicio.crear = (params) => {
+        params.estado = 'VIGENTE';
+        params.fechaRegistro = new Date();
+        params.activo = true;
         return UsuarioServicio.guardar(UsuarioServicio.construir(params), params);
     };
 
     UsuarioServicio.actualizar = (id, params) => {
         return UsuarioServicio.obtener(id)
-            .then((Usuario) => {
-                return UsuarioServicio.guardar(Usuario, params);
-            });
+        .then((Usuario) => {
+            if(params.password && params.password.length > 0) {
+                params.password = require('crypto').createHash('sha256')
+                    .update(params.password, 'utf-8').digest('hex');
+            } else {
+                params.password = Usuario.password;
+            }
+            params.fechaModificacion = new Date();
+            return UsuarioServicio.guardar(Usuario, params);
+        });
     };
 
     UsuarioServicio.obtener = (id) => {
         return UsuarioServicio.encontrarUno({ id })
-            .then((Usuario) => {
-                if (!Usuario) throw new Error('No se ha encontrado');
-                return Usuario;
-            });
+        .then((Usuario) => {
+            if (!Usuario) throw new Error('No se ha encontrado');
+            return Usuario;
+        });
     }
 
     UsuarioServicio.eliminar = (id) => {
         return UsuarioServicio.obtener(id)
-            .then(UsuarioServicio.destruir);
+        .then(UsuarioServicio.destruir);
     };
 
     return UsuarioServicio;

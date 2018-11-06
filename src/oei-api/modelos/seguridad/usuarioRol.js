@@ -15,16 +15,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             field: 'id_rol'
         },
-        fechaInicio: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            field: 'fecha_inicio'
-        },
-        fechaFin: {
-            type: DataTypes.DATE,
-            allowNull: true,
-            field: 'fecha_fin'
-        },
         fechaRegistro: {
             type: DataTypes.DATE,
             allowNull: false,
