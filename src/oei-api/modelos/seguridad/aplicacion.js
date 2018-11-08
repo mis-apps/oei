@@ -31,12 +31,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         fechaModificacion: {
             type: DataTypes.DATE,
-            allowNull: true,
             field: 'fecha_modificacion'
         },
         usuarioModificacion: {
             type: DataTypes.STRING,
-            allowNull: true,
             field: 'usuario_modificacion'
         },
         activo: DataTypes.BOOLEAN

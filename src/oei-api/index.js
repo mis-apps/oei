@@ -17,7 +17,7 @@ const app = express();
 //--------------------------------------------------
 // Conexión a la Base de Datos
 //--------------------------------------------------
-const db = new Sequelize('oei', 'root', 'zxcvbnm', {
+const db = new Sequelize('oei', 'usroei', '123456', {
     host: 'localhost',
     port: '3306',
     dialect: 'mysql',

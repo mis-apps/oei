@@ -110,4 +110,6 @@ return [
     'recurso_rol_recurso' => 'rolRecurso',
     'recurso_usuario_rol' => 'usuarioRol',
     'recurso_dominio' => 'dominio',
+    'recurso_criterio' => 'criterio',
+    'recurso_aplicacion' => 'aplicacion'
 ];

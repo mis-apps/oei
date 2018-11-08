@@ -32,12 +32,16 @@ module.exports = (servicios, modelos, Op) => {
 
     // metodos Factory
     CriterioServicio.crear = (params) => {
+
+        params.fechaRegistro = new Date();
+        params.activo = true;
         return CriterioServicio.guardar(CriterioServicio.construir(params),params);
     };
 
     CriterioServicio.actualizar = (id, params) => {
         return CriterioServicio.obtener(id)
             .then((Criterio) => {
+                params.fechaModificacion = new Date();
                 return CriterioServicio.guardar(Criterio, params);
             });
     };

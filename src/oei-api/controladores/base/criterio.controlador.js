@@ -1,7 +1,7 @@
 module.exports = (router, servicios) => {
 
     router.get('/criterio', (req, res, next) => {
-        return servicios.Criterio.listar()
+        return servicios.Criterio.listar({activo: true})
             .then((criterios) => {
                 return res.status(200).json(criterios);
             })

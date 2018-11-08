@@ -43,9 +43,20 @@ Route::group(['middleware' => ['verifica_session', 'verifica_permiso']], functio
 	Route::get('/dominio', 'DominioController@index')->name('dominio');
 	Route::post('/dominio/form', 'DominioController@form')->name('dominio.form');
 	Route::post('/dominio/save', 'DominioController@save')->name('dominio.save');
-	Route::post('/dominio/delete', 'DominioController@delete')->name('dominio.delete');
+    Route::post('/dominio/delete', 'DominioController@delete')->name('dominio.delete');
+
+    // criterio
+    Route::get('/criterio', 'CriterioController@index')->name('criterio');
+    Route::post('/criterio/form', 'CriterioController@form')->name('criterio.form');
+    Route::post('/criterio/save', 'CriterioController@save')->name('criterio.save');
+    Route::post('/criterio/delete','CriterioController@delete')->name('criterio.delete');
+
+// aplicacion
+    Route::get('/aplicacion', 'AplicacionController@index')->name('aplicacion');
+    Route::post('/aplicacion/form', 'AplicacionController@form')->name('aplicacion.form');
+    Route::post('/aplicacion/save', 'AplicacionController@save')->name('aplicacion.save');
+    Route::post('/aplicacion/delete', 'AplicacionController@delete')->name('aplicacion.delete');
 
 });
-
 
 
