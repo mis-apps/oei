@@ -8,20 +8,20 @@ use App\Http\Services\AplicacionService;
 
 class AplicacionController extends Controller
 {
-    protected $aplicaionService;
+    protected $aplicacionService;
 
-    public function __construct(AplicacionService $aplicaionService)
+    public function __construct(AplicacionService $aplicacionService)
     {
-        $this->aplicaionService = $aplicaionService;
+        $this->aplicacionService = $aplicacionService;
     }
 
     public function index(Request $request)
     {
         $recurso = SessionService::recursoPath($request->getPathInfo());
-        $aplicacionesList = $this->aplicacionService->listarAplicaciones();
+        $resultado = $this->aplicacionService->listarAplicaciones();
         return view('aplicacion.index', [
-            'aplicacionesList' => $aplicacionesList,
-            'recurso' => $recurso,
+            'aplicacionesList' => $resultado,
+            'recurso' => $recurso
         ]);
     }
 
