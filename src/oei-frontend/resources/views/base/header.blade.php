@@ -29,18 +29,22 @@
           <ul class="dropdown-menu">
             <!-- Menu Footer-->
             <li class="user-footer">
-              <div class="pull-left">
-                <a href="#" class="btn btn-default btn-flat">
+
+              <!--Boton para Modificar Perfil -->
+            <div class="pull-left">
+                <a href="#" class="btn btn-default btn-flat open-form-usuario">
                   <i class="fa fa-folder-open-o"></i>
                   Ver Perfil
                 </a>
-              </div>
-              <div class="pull-right">
+            </div>
+
+              <!--Boton para Cerrar Sesión -->
+            <div class="pull-right">
                 <a href="{{ route('logout') }}" class="btn btn-default btn-flat">
                   <i class="fa  fa-unlock-alt"></i>
                   Cerrar Sesión
                 </a>
-              </div>
+            </div>
             </li>
           </ul>
         </li>

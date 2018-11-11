@@ -24,7 +24,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach ($criterioList as $idx=>$criterio)
+				@foreach ($criteriosList as $idx=>$criterio)
 				<tr>
 					<td>{{ $idx + 1 }}.</td>
 					<td>{{ $criterio->criterio }}</td>

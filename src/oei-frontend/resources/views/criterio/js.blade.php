@@ -11,9 +11,9 @@
 				data: {id : id},
 				success: function(response) {
 					$('#id').val(response.id);
-					$('#criterio').val(response.criterio);
+                    $('#criterio').val(response.criterio);
                     $('#codigo').val(response.codigo);
-                    $('#valor').val(response.valor);
+					$('#valor').val(response.valor);
 					$('#modal-form-criterio').modal('show');
 				}
 			});
@@ -21,7 +21,7 @@
 			$('#id').val('');
 			$('#criterio').val('');
             $('#codigo').val('');
-            $('#valor').val('');
+			$('#valor').val('');
 			$('#modal-form-criterio').modal('show');
 		}
 	});
@@ -34,10 +34,9 @@
 			type: 'POST',
 			data: {
 				id : $("#id").val(),
-				criterio : $('#criterio').val('');
-                codigo : $('#codigo').val('');
-                valor : $('#valor').val('');
-
+                criterio : $("#criterio").val(),
+                codigo : $("#codigo").val(),
+				valor : $("#valor").val()
 			},
 			success: function(response) {
 				location.reload();  // recarga la pagina

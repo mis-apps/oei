@@ -37,7 +37,9 @@ Route::group(['middleware' => ['verifica_session', 'verifica_permiso']], functio
 	Route::post('/usuario/save', 'UsuarioController@save')->name('usuario.save');
 	Route::post('/usuario/delete', 'UsuarioController@delete')->name('usuario.delete');
 	Route::post('usuario/roles', 'UsuarioController@usuarioRoles')->name('usuario.roles');
-	Route::post('usuario/rol', 'UsuarioController@guardarUsuarioRol')->name('usuario.rol');
+    Route::post('usuario/rol', 'UsuarioController@guardarUsuarioRol')->name('usuario.rol');
+
+    //usuario
 
 	// dominio
 	Route::get('/dominio', 'DominioController@index')->name('dominio');
